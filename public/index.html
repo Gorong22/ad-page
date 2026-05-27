@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>AdForest × Triple HM — 광고 대시보드 솔루션 무상 지원</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#028090; --ac-lt:rgba(2,128,144,.09);
+  --tx:#111; --mu:#666; --di:#aaa;
+  --line:#e8e8e8; --card:#fafafa; --dk:#0d0d0d;
+  --r:12px; --ff:'Noto Sans KR',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff);color:var(--tx);background:#fff;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+input,select,button{font-family:var(--ff)}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-i{max-width:960px;margin:0 auto;padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:14px;font-weight:700;color:var(--ac)}
+.nav-logo span{color:var(--tx)}
+.nav-links{display:flex;gap:20px}
+.nav-links a{font-size:12px;color:var(--mu)}
+
+/* ── Wrap ── */
+.w{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* ── Section ── */
+section{padding:80px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none}
+
+/* ── Typography ── */
+.lbl{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--ac);text-transform:uppercase;margin-bottom:8px}
+.ttl{font-size:36px;font-weight:900;letter-spacing:-1px;line-height:1.12;margin-bottom:10px}
+.ttl em{color:var(--ac);font-style:normal}
+.sub{font-size:15px;color:var(--mu);line-height:1.7;max-width:560px}
+.rv{opacity:1;transform:none}
+
+/* ── Hero ── */
+#hero{padding:130px 0 80px;border-top:none}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:var(--ac-lt);border:1px solid rgba(2,128,144,.25);color:var(--ac);font-size:11px;font-weight:600;padding:5px 13px;border-radius:999px;margin-bottom:24px}
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--ac);animation:blink 1.8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+.hero-h1{font-size:64px;font-weight:900;letter-spacing:-2.5px;line-height:1.04;color:var(--tx);margin-bottom:16px}
+.hero-h1 em{color:var(--ac);font-style:normal}
+.hero-sub{font-size:16px;color:var(--mu);line-height:1.7;margin-bottom:28px;max-width:480px}
+.hero-pill{display:inline-flex;align-items:center;gap:6px;background:var(--ac-lt);border:1px solid rgba(2,128,144,.2);color:var(--ac);font-size:11px;font-weight:600;padding:6px 16px;border-radius:999px;margin-bottom:44px}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;max-width:600px}
+.stat-item{padding:18px 0;text-align:center;border-right:1px solid var(--line)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:24px;font-weight:900;color:var(--ac)}
+.stat-lbl{font-size:10px;color:var(--di);margin-top:3px}
+
+/* ── Pain/Solution ── */
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.ps-card{border-radius:var(--r);padding:24px;border:1px solid var(--line)}
+.ps-card.pain{background:var(--card)}
+.ps-card.solve{background:var(--ac-lt);border-color:var(--ac)}
+.ps-head{font-size:11px;font-weight:700;letter-spacing:.3px;color:var(--di);margin-bottom:14px}
+.ps-card.solve .ps-head{color:var(--ac)}
+.ps-rows{display:flex;flex-direction:column;gap:10px}
+.ps-row{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;line-height:1.5}
+.ico{flex-shrink:0;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;margin-top:2px}
+.ico.bad{background:#ffe4e4;color:#c00}
+.ico.good{background:var(--ac);color:#fff}
+
+/* ── Features ── */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.feat-card{border:1px solid var(--line);border-radius:var(--r);padding:24px 20px;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.feat-card:hover{box-shadow:0 6px 28px rgba(2,128,144,.1);transform:translateY(-2px)}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac)}
+.feat-num{font-size:10px;color:var(--ac);font-weight:600;margin-bottom:12px}
+.feat-ico{width:38px;height:38px;border-radius:9px;background:var(--ac-lt);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.feat-ico svg{width:17px;height:17px;stroke:var(--ac);fill:none;stroke-width:2;stroke-linecap:round}
+.feat-name{font-size:15px;font-weight:700;margin-bottom:4px}
+.feat-sub{font-size:11px;color:var(--ac);font-weight:600;margin-bottom:7px}
+.feat-desc{font-size:12.5px;color:var(--mu);line-height:1.65}
+.feat-ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:5px}
+.feat-ul li{font-size:12px;color:var(--mu);padding-left:11px;position:relative;line-height:1.5}
+.feat-ul li::before{content:'';position:absolute;left:0;top:6px;width:4px;height:4px;border-radius:50%;background:var(--ac)}
+
+/* ── Steps ── */
+#steps{background:var(--card)}
+.steps-wrap{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px;align-items:start}
+.steps-list{display:flex;flex-direction:column}
+.step-row{display:grid;grid-template-columns:44px 1fr;gap:14px}
+.step-left{display:flex;flex-direction:column;align-items:center}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--ac);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-line{flex:1;width:2px;background:var(--line);margin:4px 0}
+.step-content{padding-bottom:24px}
+.step-title{font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.step-desc{font-size:12.5px;color:var(--mu);line-height:1.6}
+.badge-pill{font-size:10px;font-weight:600;color:var(--ac);background:var(--ac-lt);padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
+/* BA table */
+.ba-box{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.ba-head{display:grid;grid-template-columns:1fr 1fr 1fr;background:var(--dk);padding:10px 14px;gap:8px}
+.ba-th{font-size:10px;font-weight:600;color:#fff}
+.ba-th.a{color:var(--ac)}
+.ba-row{display:grid;grid-template-columns:1fr 1fr 1fr;padding:0 14px;gap:8px;border-bottom:1px solid var(--line);align-items:center;min-height:40px}
+.ba-row:last-child{border-bottom:none}
+.ba-row:nth-child(even){background:#f8f8f8}
+.ba-c{font-size:11px;font-weight:700}
+.ba-b{font-size:10.5px;color:var(--di);line-height:1.4}
+.ba-a{font-size:10.5px;color:var(--ac);font-weight:600;line-height:1.4}
+
+/* ── Signup ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px;align-items:start}
+.explain-block{font-size:13px;color:var(--mu);line-height:1.65;margin-bottom:16px}
+.explain-block h4{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:5px}
+.mail-preview{background:#f8f8f8;border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:16px}
+.mail-preview-inner{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px}
+.mail-preview-logo{font-size:12px;font-weight:700;color:var(--ac);margin-bottom:4px}
+.mail-preview-txt{font-size:11px;color:var(--mu);line-height:1.6;margin-bottom:10px}
+.mail-preview-btn{background:var(--ac);color:#fff;text-align:center;border-radius:6px;padding:9px;font-size:11px;font-weight:700}
+/* form mock */
+.mock{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 3px 20px rgba(0,0,0,.07)}
+.mock-bar{background:#f2f2f2;border-bottom:1px solid var(--line);padding:8px 12px;display:flex;align-items:center;gap:5px}
+.md{width:9px;height:9px;border-radius:50%}
+.md.r{background:#ff6059}.md.y{background:#febc2e}.md.g{background:#28c840}
+.mock-url{flex:1;background:#e5e5e5;border-radius:4px;font-size:9px;color:#888;padding:3px 9px;text-align:center}
+.su-wrap{padding:20px 22px}
+.su-logo{color:var(--ac);font-size:13px;font-weight:700;text-align:center;margin-bottom:14px}
+.su-title{font-size:14px;font-weight:700;text-align:center;margin-bottom:16px}
+.fg{margin-bottom:10px}
+.fl{font-size:10.5px;font-weight:600;color:var(--mu);margin-bottom:3px}
+.fi{width:100%;border:1px solid var(--line);border-radius:6px;padding:8px 11px;font-size:12px}
+.fi.on{border-color:var(--ac);background:var(--ac-lt)}
+.fi-hint{font-size:9px;color:var(--di);margin-top:2px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.fi-sel{width:100%;border:1px solid var(--line);border-radius:6px;padding:8px 11px;font-size:12px;color:var(--mu);background:#fff}
+.ck-group{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.ck{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mu)}
+.ck input{accent-color:var(--ac)}
+.su-btn{width:100%;background:var(--dk);color:#fff;border:none;border-radius:7px;padding:11px;font-size:13px;font-weight:700;cursor:pointer}
+.soc-div{text-align:center;font-size:10px;color:var(--di);margin:10px 0}
+.soc-btns{display:flex;flex-direction:column;gap:6px}
+.soc-btn{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);border-radius:7px;padding:9px;font-size:11.5px;font-weight:500;cursor:pointer;background:#fff}
+.soc-btn.nv{background:#03c75a;color:#fff;border-color:#03c75a}
+.soc-btn.kk{background:#fee500;color:#391b1b;border-color:#fee500}
+
+/* ── API ── */
+#api{background:var(--card)}
+.api-media{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.api-media-btn{border:1.5px solid var(--line);border-radius:8px;padding:8px 5px;text-align:center}
+.api-media-btn.sel{border-color:var(--ac);background:var(--ac-lt)}
+.api-media-btn.sel .api-media-name{color:var(--ac)}
+.api-media-icon{font-size:16px;margin-bottom:3px}
+.api-media-name{font-size:10px;font-weight:600;color:var(--mu)}
+.api-modal-box{background:#f9f9f9;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.api-modal-title{font-size:12px;font-weight:700;margin-bottom:2px}
+.api-modal-desc{font-size:10.5px;color:var(--di);margin-bottom:10px}
+.api-guide-box{background:#fff;border-radius:6px;padding:10px 12px;margin-bottom:10px;border:1px solid var(--line);font-size:10.5px;color:var(--mu);line-height:1.7}
+.api-guide-box b{color:var(--ac)}
+.api-fields{display:flex;flex-direction:column;gap:7px}
+.api-fl{font-size:10px;font-weight:600;color:var(--mu);margin-bottom:2px}
+.api-fi{border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:11px;width:100%}
+.api-fi.ok{border-color:var(--ac);color:var(--ac);background:var(--ac-lt)}
+.api-conn-btn{width:100%;background:var(--ac);color:#fff;border:none;border-radius:7px;padding:10px;font-size:12px;font-weight:700;cursor:pointer;margin-top:8px}
+.api-connected{background:#f5f5f5;border-radius:8px;padding:10px 12px}
+.api-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:11.5px}
+.api-item:last-child{border-bottom:none}
+.api-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0}
+.api-item-name{flex:1;font-weight:600}
+.api-item-time{font-size:10px;color:var(--di)}
+.api-badge{font-size:9.5px;font-weight:700;background:#dcfce7;color:#16a34a;padding:2px 7px;border-radius:999px}
+.exp-block{background:#fff;border:1px solid var(--line);border-radius:9px;padding:14px 16px;display:flex;flex-direction:column;gap:7px}
+.exp-step{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--mu);line-height:1.55}
+.exp-n{flex-shrink:0;width:16px;height:16px;border-radius:50%;background:var(--ac);color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.key-box{background:#fff;border:1px solid var(--line);border-radius:7px;padding:10px 12px;margin-top:4px}
+.key-lbl{font-size:10.5px;color:var(--ac);font-weight:600;margin-bottom:2px}
+.key-desc{font-size:11px;color:var(--mu)}
+
+/* ── Dashboard ── */
+.dash-hd{background:#fff;border-bottom:1px solid var(--line);padding:9px 14px;display:flex;align-items:center;justify-content:space-between}
+.dash-logo{font-size:11px;font-weight:700;color:var(--ac)}
+.dash-tabs{display:flex;border-bottom:1px solid var(--line)}
+.dash-tab{padding:7px 12px;font-size:11px;font-weight:500;color:var(--di);border-bottom:2px solid transparent}
+.dash-tab.on{color:var(--ac);border-bottom-color:var(--ac)}
+.dash-body{padding:12px 14px}
+.kpi-row{display:grid;gap:8px;margin-bottom:12px}
+.kpi-5{grid-template-columns:repeat(5,1fr)}
+.kpi-4{grid-template-columns:repeat(4,1fr)}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:7px;padding:10px 8px;text-align:center}
+.kpi-v{font-size:13px;font-weight:700}
+.kpi-l{font-size:8.5px;color:var(--di);margin-top:2px}
+.kpi-d{font-size:9px;font-weight:600;margin-top:3px}
+.kpi-d.up{color:#16a34a}.kpi-d.dn{color:#dc2626}
+.chart-row{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-bottom:10px}
+.chart-box{background:var(--card);border:1px solid var(--line);border-radius:7px;padding:12px}
+.chart-title{font-size:9.5px;font-weight:700;color:var(--mu);margin-bottom:8px}
+.bars{display:flex;align-items:flex-end;gap:3px;height:56px}
+.bar{flex:1;border-radius:3px 3px 0 0;background:var(--line)}
+.bar.hi{background:var(--ac)}
+.pie-wrap{display:flex;align-items:center;justify-content:center;gap:12px}
+.pie-leg{display:flex;flex-direction:column;gap:5px}
+.pie-li{display:flex;align-items:center;gap:5px;font-size:9.5px;color:var(--mu)}
+.pie-dot{width:7px;height:7px;border-radius:50%}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dt{width:100%;border-collapse:collapse;font-size:11px;min-width:400px}
+.dt th{background:#f4f4f4;padding:6px 8px;text-align:left;font-size:10px;font-weight:600;color:var(--di);border-bottom:1px solid var(--line)}
+.dt td{padding:7px 8px;border-bottom:1px solid var(--line)}
+.dt tr:last-child td{border-bottom:none}
+.bd-up{background:#dcfce7;color:#16a34a;font-size:9px;font-weight:700;padding:1px 6px;border-radius:999px}
+.bd-dn{background:#fee2e2;color:#dc2626;font-size:9px;font-weight:700;padding:1px 6px;border-radius:999px}
+.pb-wrap{display:flex;align-items:center;gap:5px}
+.pb-track{flex:1;height:5px;background:var(--line);border-radius:3px}
+.pb-fill{height:100%;border-radius:3px}
+.pb-pct{font-size:9px;color:var(--di)}
+.dash-note{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mu);margin-top:10px}
+
+/* ── Alimtok ── */
+.alim-wrap{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:40px;align-items:start}
+.alim{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 3px 16px rgba(0,0,0,.07)}
+.alim-hd{background:#fee500;padding:10px 14px}
+.alim-from{font-size:11px;font-weight:700;color:#391b1b}
+.alim-time{font-size:9.5px;color:#8a6a00;margin-top:1px}
+.alim-bd{padding:12px 14px}
+.alim-title{font-size:12px;font-weight:700;margin-bottom:8px}
+.alim-row{display:flex;justify-content:space-between;font-size:11.5px;padding:5px 0;border-bottom:1px solid var(--line)}
+.alim-row:last-of-type{border-bottom:none}
+.alim-k{color:var(--mu)}.alim-v{font-weight:600}
+.alim-v.up{color:#16a34a}
+.alim-ft{padding:10px 14px;border-top:1px solid var(--line);text-align:center}
+.alim-btn{background:var(--ac);color:#fff;font-size:11px;font-weight:700;border:none;border-radius:7px;padding:8px 18px;cursor:pointer}
+/* sidebar mock */
+.sidebar-mock{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:14px}
+.sidebar-inner{display:flex;height:220px}
+.sidebar-nav{width:148px;flex-shrink:0;border-right:1px solid var(--line);background:#fff;padding:12px 0}
+.sidebar-logo-area{padding:0 12px 10px;border-bottom:1px solid var(--line);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.sidebar-logo-icon{width:20px;height:20px;border-radius:4px;background:var(--ac);display:flex;align-items:center;justify-content:center}
+.sidebar-logo-icon span{color:#fff;font-size:7px;font-weight:900}
+.sidebar-logo-txt{font-size:9px;font-weight:700;color:var(--tx)}
+.sidebar-menu{padding:0 6px;display:flex;flex-direction:column;gap:2px}
+.menu-item{display:flex;align-items:center;gap:6px;padding:7px 8px;border-radius:6px;font-size:10px;color:var(--mu)}
+.menu-item.active{font-weight:700;color:var(--ac);background:var(--ac-lt);border:1px solid var(--ac)}
+.sidebar-panel{flex:1;padding:12px;background:#f9f9f9}
+.panel-title{font-size:10px;font-weight:700;color:var(--mu);margin-bottom:8px}
+.panel-card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px;margin-bottom:6px}
+.panel-card-title{font-size:9.5px;font-weight:700;margin-bottom:5px}
+.panel-toggle-row{display:flex;justify-content:space-between;align-items:center;font-size:9px;color:var(--mu);margin-bottom:4px}
+.toggle{width:28px;height:15px;border-radius:8px;background:var(--ac);position:relative;flex-shrink:0}
+.toggle::after{content:'';position:absolute;right:2px;top:2px;width:11px;height:11px;border-radius:50%;background:#fff}
+.panel-time{font-size:8.5px;color:var(--di)}
+.status-row{display:flex;align-items:center;gap:5px;font-size:9.5px}
+.status-dot{width:6px;height:6px;border-radius:50%;background:#22c55e}
+/* warn */
+.warn-box{border:1.5px solid #f59e0b;border-radius:10px;overflow:hidden;background:#fff}
+.warn-hd{background:#f59e0b;padding:9px 13px;display:flex;align-items:center;gap:6px}
+.warn-hd span{font-size:11.5px;font-weight:700;color:#fff}
+.warn-body{padding:12px 13px;display:flex;flex-direction:column;gap:8px}
+.warn-desc{font-size:12px;color:var(--mu);line-height:1.6}
+.warn-step{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mu)}
+.warn-n{flex-shrink:0;width:16px;height:16px;border-radius:50%;background:var(--ac);color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.info-note{background:var(--ac-lt);border:1px solid var(--ac);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--mu);line-height:1.65}
+
+/* ── AI ── */
+#ai{background:var(--dk)}
+#ai .lbl{color:var(--ac)}
+#ai .ttl{color:#fff}
+#ai .sub{color:rgba(255,255,255,.45)}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:12px;overflow:hidden;margin-top:40px}
+.ai-card{background:var(--dk);padding:28px 24px;display:flex;flex-direction:column}
+.ai-lbl{font-size:9px;color:rgba(255,255,255,.3);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.ai-num{font-size:38px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1}
+.ai-num em{font-size:18px;color:var(--ac);font-style:normal}
+.ai-sub-lbl{font-size:10px;color:rgba(255,255,255,.25);margin-top:4px;margin-bottom:16px}
+.ai-hr{height:1px;background:rgba(255,255,255,.07);margin-bottom:16px}
+.ai-algo{font-size:16px;font-weight:700;color:#fff;letter-spacing:-.2px}
+.ai-algo em{font-size:12px;color:var(--ac);font-style:normal}
+.ai-desc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.7;margin-top:8px;flex:1}
+.ai-desc strong{color:var(--ac);font-weight:600}
+.ai-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.ai-tag{font-size:9.5px;background:rgba(2,128,144,.15);color:var(--ac);border:1px solid rgba(2,128,144,.2);padding:3px 9px;border-radius:999px}
+
+/* ── Proxy ── */
+#proxy{background:var(--card);text-align:center}
+.proxy-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;margin:0 auto 28px}
+.proxy-card{border:2px solid var(--ac);border-radius:12px;padding:24px 20px;text-align:center;background:#fff}
+.proxy-card-icon{font-size:26px;margin-bottom:10px}
+.proxy-card-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.proxy-card-desc{font-size:12px;color:var(--mu);line-height:1.6}
+.proxy-how{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;max-width:560px;margin:0 auto 16px;text-align:left}
+.proxy-how-title{font-size:11px;font-weight:700;color:var(--mu);margin-bottom:10px}
+.proxy-step{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mu);margin-bottom:6px;line-height:1.4}
+.proxy-step:last-child{margin-bottom:0}
+.proxy-n{flex-shrink:0;width:16px;height:16px;border-radius:50%;background:var(--ac);color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.agree-box{background:#f8f8f8;border:1px solid var(--line);border-radius:10px;padding:16px 18px;max-width:560px;margin:0 auto;text-align:left}
+.agree-title{font-size:11px;font-weight:700;color:var(--mu);margin-bottom:10px}
+.agree-item{display:flex;align-items:flex-start;gap:7px;font-size:13px;color:var(--mu);line-height:1.6;margin-bottom:8px;word-break:keep-all}
+.agree-check{color:var(--ac);font-weight:700;flex-shrink:0;margin-top:1px}
+.agree-note{font-size:11px;color:var(--di);margin-top:10px;border-top:1px solid var(--line);padding-top:10px;line-height:1.6}
+.proxy-note{font-size:12px;color:var(--di);margin-top:16px}
+
+/* ── CTA ── */
+#cta{text-align:center;background:var(--ac-lt);border-top:1px solid rgba(2,128,144,.15)!important}
+.cta-ttl{font-size:52px;font-weight:900;letter-spacing:-2px;line-height:1.06;margin-bottom:10px}
+.cta-sub{font-size:16px;color:var(--mu);line-height:1.65;margin-bottom:8px}
+.cta-hint{font-size:14px;color:var(--mu);margin-bottom:28px}
+.cta-hint strong{color:var(--ac)}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.btn-fill{display:inline-flex;align-items:center;gap:7px;background:var(--ac);color:#fff;font-size:14px;font-weight:700;padding:13px 26px;border-radius:10px;transition:opacity .2s}
+.btn-fill:hover{opacity:.85}
+.btn-fill svg{width:14px;height:14px}
+.cta-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.cs-num{font-size:28px;font-weight:900;color:var(--ac)}
+.cs-lbl{font-size:11px;color:var(--di);margin-top:4px}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--line);padding:28px 24px;max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--di)}
+.ac-bar{height:4px;background:var(--ac)}
+
+/* ── Guide ── */
+.guide{position:fixed;bottom:20px;right:20px;z-index:999;background:var(--dk);color:#fff;padding:10px 16px;border-radius:8px;font-size:11px;font-weight:500;line-height:1.7;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.guide b{color:var(--ac)}
+
+/* ════════════════════
+   MOBILE (≤680px)
+════════════════════ */
+@media(max-width:680px){
+  .nav-links{display:none}
+  .w{padding:0 18px}
+  section{padding:60px 0}
+
+  .ttl{font-size:26px;letter-spacing:-.6px}
+  .sub{font-size:14px;max-width:100%}
+
+  /* Hero */
+  #hero{padding:90px 0 60px}
+  .hero-h1{font-size:38px;letter-spacing:-1.5px}
+  .hero-sub{font-size:14px;max-width:100%}
+  .hero-pill{font-size:10px}
+  .stat-row{grid-template-columns:1fr 1fr;max-width:100%}
+  .stat-item{padding:14px 0;border-right:none!important;border-bottom:1px solid var(--line)}
+  .stat-item:nth-child(odd){border-right:1px solid var(--line)!important}
+  .stat-item:nth-child(3),.stat-item:nth-child(4){border-bottom:none}
+  .stat-num{font-size:20px}
+
+  /* Pain */
+  .ps-grid{grid-template-columns:1fr;gap:12px}
+
+  /* Features */
+  .feat-grid{grid-template-columns:1fr;gap:12px}
+
+  /* Steps */
+  .steps-wrap{grid-template-columns:1fr;gap:32px}
+
+  /* Signup / API */
+  .two-col{grid-template-columns:1fr;gap:24px}
+
+  /* Dashboard */
+  .kpi-5{grid-template-columns:repeat(2,1fr)!important}
+  .kpi-4{grid-template-columns:repeat(2,1fr)!important}
+  .chart-row{grid-template-columns:1fr!important}
+
+  /* Alimtok */
+  .alim-wrap{grid-template-columns:1fr;gap:24px}
+  .sidebar-inner{height:auto;flex-direction:column}
+  .sidebar-nav{width:100%;border-right:none;border-bottom:1px solid var(--line);padding:10px 0}
+  .sidebar-menu{flex-direction:row;flex-wrap:wrap;padding:0 8px;gap:4px}
+  .menu-item{font-size:9px;padding:5px 8px}
+  .sidebar-panel{padding:10px}
+
+  /* AI */
+  .ai-grid{grid-template-columns:1fr}
+
+  /* Proxy */
+  .proxy-cards{grid-template-columns:1fr;max-width:100%}
+  .proxy-how,.agree-box{max-width:100%}
+
+  /* CTA */
+  .cta-ttl{font-size:34px;letter-spacing:-1.5px}
+  .cta-sub{font-size:14px}
+  .cta-hint{font-size:13px}
+  .cta-btns{flex-direction:column;align-items:stretch}
+  .btn-fill{justify-content:center}
+  .cta-stats{gap:20px}
+  .cs-num{font-size:22px}
+
+  /* Footer */
+  footer{flex-direction:column;gap:6px;text-align:center}
+
+  /* Guide */
+  .guide{bottom:12px;right:12px;font-size:10px;padding:8px 12px}
+}
+</style>
+</head>
+<body>
+
+<div class="guide">🖨️ <b>Ctrl+P</b> → 배경 그래픽 <b>✓ 체크</b> → 가로 → PDF</div>
+
+<nav>
+  <div class="nav-i">
+    <div class="nav-logo">Ad<span>Forest</span> × Triple HM</div>
+    <div class="nav-links">
+      <a href="#pain">불편함</a>
+      <a href="#features">기능</a>
+      <a href="#steps">시작 방법</a>
+      <a href="#signup">회원가입</a>
+      <a href="#api">API 연동</a>
+      <a href="#dashboard">대시보드</a>
+      <a href="#alimtok">알림톡</a>
+      <a href="#ai">AI 기술</a>
+      <a href="#proxy">대리 가입</a>
+      <a href="#cta">신청</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="w">
+    <div class="hero-tag rv"><span class="dot"></span>네이버 직접운영광고주 성장 프로젝트 참여 광고주 전용</div>
+    <h1 class="hero-h1 rv">광고 성과,<br>이제 <em>10초</em>로<br>확인하세요.</h1>
+    <p class="hero-sub rv">매일 아침 알림톡 하나로 어제의 성과를 파악하고,<br>실시간 대시보드로 최적의 타이밍에 행동하세요.</p>
+    <div class="hero-pill rv"><span>✦</span>&nbsp; 무상 지원 · 별도 비용 없음</div>
+    <div class="stat-row rv">
+      <div class="stat-item"><div class="stat-num">10초</div><div class="stat-lbl">아침 성과 확인</div></div>
+      <div class="stat-item"><div class="stat-num">3분</div><div class="stat-lbl">소요 시간</div></div>
+      <div class="stat-item"><div class="stat-num">400만+</div><div class="stat-lbl">AI 학습 데이터</div></div>
+      <div class="stat-item"><div class="stat-num">무상</div><div class="stat-lbl">참여자 전원 혜택</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section id="pain">
+  <div class="w">
+    <div class="lbl rv">Pain Points → Solution</div>
+    <div class="ttl rv">3가지 한계, <em>3가지 해결</em></div>
+    <p class="sub rv">직접 운영 광고주분들이 공통으로 겪는 불편함, 애드포레스트가 해결합니다.</p>
+    <div class="ps-grid rv">
+      <div class="ps-card pain">
+        <div class="ps-head">😓 지금 불편함</div>
+        <div class="ps-rows">
+          <div class="ps-row"><span class="ico bad">!</span>매일 30분, 개별 접속해 수작업 성과 정리</div>
+          <div class="ps-row"><span class="ico bad">!</span>네이버·구글·Meta·카카오 데이터 분산</div>
+          <div class="ps-row"><span class="ico bad">!</span>집계 지연 → 골든타임 의사결정 상실</div>
+          <div class="ps-row"><span class="ico bad">!</span>ROI·전환율 핵심 지표 추적 어려움</div>
+          <div class="ps-row"><span class="ico bad">!</span>예산 소진 현황 실시간 파악 불가</div>
+        </div>
+      </div>
+      <div class="ps-card solve">
+        <div class="ps-head">✦ 애드포레스트 해결</div>
+        <div class="ps-rows">
+          <div class="ps-row"><span class="ico good">✓</span>알림톡으로 10초 만에 전일 성과 확인</div>
+          <div class="ps-row"><span class="ico good">✓</span>4개 매체 통합 대시보드 — 한 화면에서</div>
+          <div class="ps-row"><span class="ico good">✓</span>실시간 수집 → 즉각 대응 가능</div>
+          <div class="ps-row"><span class="ico good">✓</span>KPI 자동 요약 + 전략 방향 제안</div>
+          <div class="ps-row"><span class="ico good">✓</span>예산 소진 게이지 + 성장 추이 그래프</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="w">
+    <div class="lbl rv">무상 제공 서비스</div>
+    <div class="ttl rv">3가지 기능, <em>무상 지원</em></div>
+    <p class="sub rv">프로젝트 참여 광고주 한정, 내부 솔루션을 무상으로 제공합니다.</p>
+    <div class="feat-grid rv">
+      <div class="feat-card">
+        <div class="feat-num">Feature 01 — Report</div>
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <div class="feat-name">광고성과 통합 리포트</div>
+        <div class="feat-sub">N · G · Meta · 카카오 통합 분석</div>
+        <div class="feat-desc">파편화된 광고 데이터를 하나로 결합. KPI 요약부터 매체별 기여도 분석까지.</div>
+        <ul class="feat-ul"><li>핵심 KPI 중심 리포트 자동 생성</li><li>매체별 기여도 분석 → 비용 효율화</li><li>소재·키워드별 성과 상세 데이터</li></ul>
+      </div>
+      <div class="feat-card">
+        <div class="feat-num">Feature 02 — Notification</div>
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <div class="feat-name">광고성과 효율 알림톡</div>
+        <div class="feat-sub">Daily Performance Alert</div>
+        <div class="feat-desc">PC를 켜지 않아도 손 안에서 어제 성과를 즉시 확인. 취합 30분 → 확인 10초.</div>
+        <ul class="feat-ul"><li>매일 오전 10시 자동 발송</li><li>매출·ROAS·유입수 자동 요약</li><li>이상 수치 즉시 알림</li></ul>
+      </div>
+      <div class="feat-card">
+        <div class="feat-num">Feature 03 — Dashboard</div>
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="feat-name">매체별 성과 대시보드</div>
+        <div class="feat-sub">Real-time Monitoring</div>
+        <div class="feat-desc">시간대·요일·소재별 성과를 그래프로. 숫자가 아닌 흐름으로 광고를 읽습니다.</div>
+        <ul class="feat-ul"><li>일별·월별 예산 소진 & 매출 모니터링</li><li>주간·월간 성장 곡선 상시 제공</li><li>예산 소진 현황 실시간 확인</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section id="steps">
+  <div class="w">
+    <div class="lbl rv">How it works</div>
+    <div class="ttl rv"><em>3분</em>이면 완료</div>
+    <p class="sub rv">복잡한 세팅 없이. 내일 오전 10시부터 알림톡이 도착합니다.</p>
+    <div class="steps-wrap rv">
+      <div class="steps-list">
+        <div class="step-row">
+          <div class="step-left"><div class="step-num">01</div><div class="step-line"></div></div>
+          <div class="step-content"><div class="step-title">소셜 간편 가입</div><div class="step-desc">구글·네이버·카카오 계정으로 1분 내 계정 생성.</div></div>
+        </div>
+        <div class="step-row">
+          <div class="step-left"><div class="step-num">02</div><div class="step-line"></div></div>
+          <div class="step-content"><div class="step-title">네이버 API 연동</div><div class="step-desc">어드민 [도구 > API 사용 관리]에서 Customer ID · 액세스 라이선스 · 비밀키 복사 후 입력.</div></div>
+        </div>
+        <div class="step-row">
+          <div class="step-left"><div class="step-num">03</div><div class="step-line"></div></div>
+          <div class="step-content"><div class="step-title">통합 광고 대시보드 생성</div><div class="step-desc">연동된 데이터로 보고서를 선택해 대시보드 바로 생성. 네이버·구글·메타·카카오 성과를 한 화면에서 확인.</div></div>
+        </div>
+        <div class="step-row">
+          <div class="step-left"><div class="step-num">04</div><div class="step-line"></div></div>
+          <div class="step-content"><div class="step-title">광고성과 알림톡 설정 <span class="badge-pill">별도 신청</span></div><div class="step-desc">담당자에게 "알림톡 신청" 회신 → 계정 활성화 → 시스템 내 본인인증 1회 완료.</div></div>
+        </div>
+        <div class="step-row">
+          <div class="step-left"><div class="step-num" style="background:var(--ac)">05</div></div>
+          <div class="step-content" style="padding-bottom:0"><div class="step-title" style="color:var(--ac)">매일 오전 10시, 알림톡 + 대시보드 🎉</div><div class="step-desc">매일 오전 10시 알림톡으로 전일 성과 자동 수신. 대시보드에서 광고 성과·예산 소진·매체별 현황을 언제든 확인!</div></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--mu);margin-bottom:12px">Before / After — 달라지는 것들</div>
+        <div class="ba-box">
+          <div class="ba-head"><div class="ba-th">항목</div><div class="ba-th">기존</div><div class="ba-th a">도입 후</div></div>
+          <div class="ba-row"><div class="ba-c">성과 확인</div><div class="ba-b">개별 접속 — 일 30분</div><div class="ba-a">알림톡 — 일 10초</div></div>
+          <div class="ba-row"><div class="ba-c">리포트</div><div class="ba-b">수작업 엑셀 취합</div><div class="ba-a">대시보드 자동 생성</div></div>
+          <div class="ba-row"><div class="ba-c">성과 분석</div><div class="ba-b">과거 수치 확인</div><div class="ba-a">AI 미래 시뮬레이션</div></div>
+          <div class="ba-row"><div class="ba-c">의사결정</div><div class="ba-b">집계 지연 → 타이밍 상실</div><div class="ba-a">실시간 즉각 대응</div></div>
+          <div class="ba-row"><div class="ba-c">예산 관리</div><div class="ba-b">수동 확인</div><div class="ba-a">실시간 게이지 모니터링</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section id="signup">
+  <div class="w">
+    <div class="lbl rv">Step 01</div>
+    <div class="ttl rv"><em>회원가입</em> 방법</div>
+    <p class="sub rv">이메일 또는 소셜 계정으로 1분 안에 가입 완료.</p>
+    <div class="two-col rv">
+      <div>
+        <div class="explain-block"><h4>① 필수 정보 입력</h4>이메일·비밀번호·광고주명을 입력하고 업종을 선택합니다. 업종 정보는 맞춤형 데이터 제공에 활용됩니다.</div>
+        <div class="explain-block"><h4>② 이메일 인증</h4>회원가입 버튼 클릭 → 인증 메일 발송 → 메일 내 '이메일 인증하기' 버튼 클릭 → 24시간 이내 완료.</div>
+        <div class="explain-block"><h4>③ 소셜 간편 가입</h4>구글·네이버·카카오 계정으로 로그인하면 인증 없이 즉시 가입됩니다.</div>
+        <div class="mail-preview">
+          <div style="font-size:10.5px;font-weight:700;color:var(--mu);margin-bottom:8px">📧 인증 메일 예시</div>
+          <div class="mail-preview-inner">
+            <div class="mail-preview-logo">AdForest</div>
+            <div class="mail-preview-txt">회원가입 인증 메일입니다.<br>아래 버튼을 클릭하여 인증을 완료해 주세요.<br>24시간 이내로 인증을 완료해 주세요.</div>
+            <div class="mail-preview-btn">이메일 인증하기</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="mock-bar"><span class="md r"></span><span class="md y"></span><span class="md g"></span><div class="mock-url">adforest.co.kr/signup</div></div>
+        <div class="su-wrap">
+          <div class="su-logo">AdForest</div>
+          <div class="su-title">회원가입하기</div>
+          <div class="fg"><div class="fl">이메일</div><input class="fi on" type="text" value="example@company.com" readonly/></div>
+          <div class="fg"><div class="fl">비밀번호</div><input class="fi" type="password" value="••••••••" readonly/><div class="fi-hint">✓ 영문 ✓ 숫자 ✓ 특수기호 포함 8자 이상</div></div>
+          <div class="fg"><div class="fl">비밀번호 확인</div><input class="fi" type="password" value="••••••••" readonly/></div>
+          <div class="fg"><div class="fl">광고주명</div><input class="fi" type="text" placeholder="광고주명을 입력해주세요" readonly/></div>
+          <div class="fg-row">
+            <div><div class="fl">업종 1</div><select class="fi-sel" disabled><option>쇼핑몰·이커머스</option></select></div>
+            <div><div class="fl">업종 2</div><select class="fi-sel" disabled><option>패션·의류</option></select></div>
+          </div>
+          <div class="ck-group">
+            <label class="ck"><input type="checkbox" checked disabled/><span>(필수) 이용약관 동의</span></label>
+            <label class="ck"><input type="checkbox" checked disabled/><span>(필수) 개인정보 수집 및 이용 동의</span></label>
+            <label class="ck"><input type="checkbox" disabled/><span>(선택) 광고성 정보 수신 동의</span></label>
+          </div>
+          <button class="su-btn">회원가입</button>
+          <div class="soc-div">— 간편 회원가입 —</div>
+          <div class="soc-btns">
+            <button class="soc-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              구글로 간편 회원가입
+            </button>
+            <button class="soc-btn nv">N&nbsp; 네이버로 간편 회원가입</button>
+            <button class="soc-btn kk">💬 카카오로 간편 회원가입</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- API -->
+<section id="api">
+  <div class="w">
+    <div class="lbl rv">Step 02</div>
+    <div class="ttl rv">네이버 <em>API 연동</em> 가이드</div>
+    <p class="sub rv">값 3개만 복사하면 끝. 3분이면 충분합니다.</p>
+    <div class="two-col rv">
+      <div class="mock">
+        <div class="mock-bar"><span class="md r"></span><span class="md y"></span><span class="md g"></span><div class="mock-url">adforest.co.kr/data-center</div></div>
+        <div style="padding:14px 16px">
+          <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:10px">데이터 연결하기</div>
+          <div class="api-media">
+            <div class="api-media-btn sel"><div class="api-media-icon">🟢</div><div class="api-media-name">네이버 검색광고</div></div>
+            <div class="api-media-btn"><div class="api-media-icon">🔵</div><div class="api-media-name">구글 광고</div></div>
+            <div class="api-media-btn"><div class="api-media-icon">🟡</div><div class="api-media-name">카카오키워드</div></div>
+            <div class="api-media-btn"><div class="api-media-icon">🟦</div><div class="api-media-name">페이스북</div></div>
+            <div class="api-media-btn"><div class="api-media-icon">🟩</div><div class="api-media-name">카카오 모먼트</div></div>
+            <div class="api-media-btn"><div class="api-media-icon">🟫</div><div class="api-media-name">네이버 GFA</div></div>
+          </div>
+          <div class="api-modal-box">
+            <div class="api-modal-title">네이버 검색광고 연결</div>
+            <div class="api-modal-desc">도구 > API 사용 관리에서 값을 확인 후 입력하세요.</div>
+            <div class="api-guide-box"><b>1</b> 네이버 검색광고 로그인 → <b>2</b> 도구 > API 사용 관리<br><b>3</b> ID·라이선스·비밀키 복사 → <b>4</b> 입력 후 연결</div>
+            <div class="api-fields">
+              <div><div class="api-fl">A. Customer ID</div><input class="api-fi ok" value="CUSTOMER_ID_1234567" readonly/></div>
+              <div><div class="api-fl">B. 액세스 라이선스</div><input class="api-fi ok" value="••••••••••••••••••••••••••••" readonly/></div>
+              <div><div class="api-fl">C. 비밀키</div><input class="api-fi ok" value="••••••••••••••••••••••••••••" readonly/></div>
+              <div><div class="api-fl">데이터 이름 (선택)</div><input class="api-fi" placeholder="예: 우리 브랜드 네이버SA" readonly/></div>
+            </div>
+            <button class="api-conn-btn">연결하기</button>
+          </div>
+          <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:8px">연결된 데이터</div>
+          <div class="api-connected">
+            <div class="api-item"><span class="api-dot"></span><span class="api-item-name">🟢 네이버 검색광고</span><span class="api-item-time">8시간 전 업데이트</span><span class="api-badge">성공</span></div>
+            <div class="api-item"><span class="api-dot"></span><span class="api-item-name">🔵 구글 광고</span><span class="api-item-time">8시간 전 업데이트</span><span class="api-badge">성공</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:8px">어디서 값을 가져오나요?</div>
+          <div class="exp-block">
+            <div class="exp-step"><span class="exp-n">1</span>네이버 검색광고 <b>searchad.naver.com</b> 로그인</div>
+            <div class="exp-step"><span class="exp-n">2</span>상단 <b>도구</b> 메뉴 → <b>API 사용 관리</b> 이동</div>
+            <div class="exp-step"><span class="exp-n">3</span><b>A. CUSTOMER_ID · B. 액세스 라이선스 · C. 비밀키</b> 복사</div>
+            <div class="exp-step"><span class="exp-n">4</span>애드포레스트 데이터 센터에서 붙여넣기 → <b>연결</b></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:8px">입력 값 설명</div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="key-box"><div class="key-lbl">A. Customer ID</div><div class="key-desc">내 계정의 고객 식별 번호. API 관리 화면에서 확인.</div></div>
+            <div class="key-box"><div class="key-lbl">B. 액세스 라이선스</div><div class="key-desc">API 액세스 인증 키. 노출되지 않도록 주의.</div></div>
+            <div class="key-box"><div class="key-lbl">C. 비밀키 (Secret Key)</div><div class="key-desc">API 인증 비밀키. 재발급 가능.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <div class="w">
+    <div class="lbl rv">Step 03 — 대시보드 미리보기</div>
+    <div class="ttl rv">연동 후 <em>이렇게</em> 보입니다</div>
+    <p class="sub rv">기간 선택만 하면 자동 분석. 💡 연동 후 데이터가 쌓이며, 전일까지의 데이터를 대시보드에서 바로 확인 가능합니다.</p>
+
+    <div style="margin-top:40px" class="rv">
+      <div style="font-size:12px;font-weight:700;color:var(--mu);margin-bottom:10px">① 네이버 검색광고 리포트 — KPI + 퍼널</div>
+      <div class="mock">
+        <div class="mock-bar"><span class="md r"></span><span class="md y"></span><span class="md g"></span><div class="mock-url">adforest.co.kr/report/naver-sa</div></div>
+        <div class="dash-hd"><div class="dash-logo">AdForest</div><div style="font-size:10.5px;color:var(--di)">조회 기간: 2024-08-01 ~ 2024-08-31</div></div>
+        <div class="dash-tabs"><div class="dash-tab on">키워드/전환</div><div class="dash-tab">노출/클릭</div><div class="dash-tab">비율</div></div>
+        <div class="dash-body">
+          <div class="kpi-row kpi-5">
+            <div class="kpi"><div class="kpi-v">320,490</div><div class="kpi-l">총 노출수</div><div class="kpi-d up">▲ 12.3%</div></div>
+            <div class="kpi"><div class="kpi-v">10,116</div><div class="kpi-l">총 클릭수</div><div class="kpi-d up">▲ 8.1%</div></div>
+            <div class="kpi"><div class="kpi-v">934</div><div class="kpi-l">전환수</div><div class="kpi-d up">▲ 5.7%</div></div>
+            <div class="kpi"><div class="kpi-v">₩22,000</div><div class="kpi-l">평균 CPC</div><div class="kpi-d dn">▼ 2.1%</div></div>
+            <div class="kpi"><div class="kpi-v">₩1.52억</div><div class="kpi-l">전환매출</div><div class="kpi-d up">▲ 18.4%</div></div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-box">
+              <div class="chart-title">전환 추세 (일별)</div>
+              <div class="bars">
+                <div class="bar" style="height:35%"></div><div class="bar" style="height:45%"></div><div class="bar" style="height:40%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:48%"></div><div class="bar hi" style="height:70%"></div><div class="bar" style="height:52%"></div><div class="bar hi" style="height:80%"></div><div class="bar" style="height:60%"></div><div class="bar" style="height:50%"></div><div class="bar hi" style="height:88%"></div><div class="bar" style="height:65%"></div><div class="bar" style="height:42%"></div><div class="bar hi" style="height:95%"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:8.5px;color:var(--di);margin-top:4px"><span>08/01</span><span>08/07</span><span>08/14</span><span>08/21</span><span>08/31</span></div>
+            </div>
+            <div class="chart-box">
+              <div class="chart-title">PC / MO 전환 비율</div>
+              <div class="pie-wrap" style="margin-top:6px">
+                <svg width="64" height="64" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" fill="none" stroke="#e8e8e8" stroke-width="3.2"/><circle cx="18" cy="18" r="15.9" fill="none" stroke="#028090" stroke-width="3.2" stroke-dasharray="52 48" stroke-dashoffset="25" transform="rotate(-90 18 18)"/><text x="18" y="20" text-anchor="middle" font-size="6.5" font-weight="700" fill="#111">52%</text></svg>
+                <div class="pie-leg"><div class="pie-li"><span class="pie-dot" style="background:#028090"></span>MO 52%</div><div class="pie-li"><span class="pie-dot" style="background:#e8e8e8"></span>PC 48%</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="chart-box">
+            <div class="chart-title">요일별 전환 성과</div>
+            <div class="tbl-wrap">
+              <table class="dt">
+                <thead><tr><th>요일</th><th>전환수</th><th>전환매출</th><th>평균 CPC</th><th>전주비</th></tr></thead>
+                <tbody>
+                  <tr><td>월요일</td><td>182</td><td>₩31,200,000</td><td>₩21,500</td><td><span class="bd-up">+18%</span></td></tr>
+                  <tr><td>화요일</td><td>156</td><td>₩26,800,000</td><td>₩22,100</td><td><span class="bd-up">+9%</span></td></tr>
+                  <tr><td>수요일</td><td>140</td><td>₩24,000,000</td><td>₩22,000</td><td><span class="bd-dn">-3%</span></td></tr>
+                  <tr><td>목요일</td><td>168</td><td>₩28,800,000</td><td>₩21,800</td><td><span class="bd-up">+14%</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px" class="rv">
+      <div style="font-size:12px;font-weight:700;color:var(--mu);margin-bottom:10px">② 소재별 성과 — TOP3 + 키워드 상세</div>
+      <div class="mock">
+        <div class="mock-bar"><span class="md r"></span><span class="md y"></span><span class="md g"></span><div class="mock-url">adforest.co.kr/report/creative</div></div>
+        <div class="dash-body">
+          <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:8px">광고 소재 성과 TOP 3</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px">
+            <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden">
+              <div style="background:linear-gradient(135deg,#e6f5f7,#c0e8ec);height:60px;display:flex;align-items:center;justify-content:center;font-size:9.5px;color:#028090;font-weight:700">소재 이미지 A</div>
+              <div style="padding:9px;font-size:11px">
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="color:var(--di)">노출수</span><span style="font-weight:600">20,048</span></div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="color:var(--di)">클릭률</span><span style="font-weight:600;color:#028090">1.07%</span></div>
+                <div style="display:flex;justify-content:space-between"><span style="color:var(--di)">전환매출</span><span style="font-weight:700">₩235,000</span></div>
+              </div>
+            </div>
+            <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden">
+              <div style="background:linear-gradient(135deg,#eef2ff,#c8d5f8);height:60px;display:flex;align-items:center;justify-content:center;font-size:9.5px;color:#3b5ee8;font-weight:700">소재 이미지 B</div>
+              <div style="padding:9px;font-size:11px">
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="color:var(--di)">노출수</span><span style="font-weight:600">18,332</span></div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="color:var(--di)">클릭률</span><span style="font-weight:600;color:#028090">1.07%</span></div>
+                <div style="display:flex;justify-content:space-between"><span style="color:var(--di)">전환매출</span><span style="font-weight:700">₩198,000</span></div>
+              </div>
+            </div>
+            <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden">
+              <div style="background:linear-gradient(135deg,#fff4ec,#f5d8c2);height:60px;display:flex;align-items:center;justify-content:center;font-size:9.5px;color:#c46a2e;font-weight:700">소재 이미지 C</div>
+              <div style="padding:9px;font-size:11px">
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="color:var(--di)">노출수</span><span style="font-weight:600">15,980</span></div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="color:var(--di)">클릭률</span><span style="font-weight:600;color:#028090">1.09%</span></div>
+                <div style="display:flex;justify-content:space-between"><span style="color:var(--di)">전환매출</span><span style="font-weight:700">₩172,000</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tbl-wrap">
+            <table class="dt">
+              <thead><tr><th>키워드</th><th>노출수</th><th>클릭수</th><th>클릭률</th><th>전환수</th><th>전환매출</th><th>전주비</th></tr></thead>
+              <tbody>
+                <tr><td>브랜드 키워드 A</td><td>45,200</td><td>920</td><td>2.04%</td><td>184</td><td>₩31,500,000</td><td><span class="bd-up">+22.1%</span></td></tr>
+                <tr><td>카테고리 키워드 B</td><td>38,100</td><td>760</td><td>2.00%</td><td>152</td><td>₩26,040,000</td><td><span class="bd-up">+9.5%</span></td></tr>
+                <tr><td>경쟁사 키워드 C</td><td>22,400</td><td>336</td><td>1.50%</td><td>67</td><td>₩11,477,000</td><td><span class="bd-dn">-4.3%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px" class="rv">
+      <div style="font-size:12px;font-weight:700;color:var(--mu);margin-bottom:10px">③ 매체별 통합 성과 대시보드</div>
+      <div class="mock">
+        <div class="mock-bar"><span class="md r"></span><span class="md y"></span><span class="md g"></span><div class="mock-url">adforest.co.kr/dashboard</div></div>
+        <div class="dash-body">
+          <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+            <div style="background:#028090;color:#fff;border-radius:6px;padding:4px 11px;font-size:11px;font-weight:600">전체</div>
+            <div style="border:1px solid var(--line);border-radius:6px;padding:4px 11px;font-size:11px;color:var(--di)">네이버SA</div>
+            <div style="border:1px solid var(--line);border-radius:6px;padding:4px 11px;font-size:11px;color:var(--di)">구글</div>
+            <div style="border:1px solid var(--line);border-radius:6px;padding:4px 11px;font-size:11px;color:var(--di)">카카오</div>
+            <div style="border:1px solid var(--line);border-radius:6px;padding:4px 11px;font-size:11px;color:var(--di)">메타</div>
+          </div>
+          <div class="kpi-row kpi-4">
+            <div class="kpi"><div class="kpi-v">₩1.52억</div><div class="kpi-l">전환매출</div><div class="kpi-d up">▲ 18.4%</div></div>
+            <div class="kpi"><div class="kpi-v">₩3,840만</div><div class="kpi-l">광고비</div><div class="kpi-d dn">▼ 2.1%</div></div>
+            <div class="kpi"><div class="kpi-v">396%</div><div class="kpi-l">ROAS</div><div class="kpi-d up">▲ 21.0%</div></div>
+            <div class="kpi"><div class="kpi-v">9.2%</div><div class="kpi-l">전환율</div><div class="kpi-d up">▲ 1.3%p</div></div>
+          </div>
+          <div class="tbl-wrap">
+            <table class="dt">
+              <thead><tr><th>매체</th><th>광고비</th><th>전환매출</th><th>ROAS</th><th>예산 소진</th></tr></thead>
+              <tbody>
+                <tr><td>🟢 네이버SA</td><td>₩1,820만</td><td>₩7,644만</td><td>420%</td><td><div class="pb-wrap"><div class="pb-track"><div class="pb-fill" style="width:72%;background:#028090"></div></div><span class="pb-pct">72%</span></div></td></tr>
+                <tr><td>🔵 구글광고</td><td>₩980만</td><td>₩3,822만</td><td>390%</td><td><div class="pb-wrap"><div class="pb-track"><div class="pb-fill" style="width:58%;background:#4285F4"></div></div><span class="pb-pct">58%</span></div></td></tr>
+                <tr><td>🟡 카카오</td><td>₩620만</td><td>₩2,418만</td><td>390%</td><td><div class="pb-wrap"><div class="pb-track"><div class="pb-fill" style="width:44%;background:#fee500"></div></div><span class="pb-pct">44%</span></div></td></tr>
+                <tr><td>🔷 메타(FB)</td><td>₩420만</td><td>₩1,638만</td><td>390%</td><td><div class="pb-wrap"><div class="pb-track"><div class="pb-fill" style="width:38%;background:#1877f2"></div></div><span class="pb-pct">38%</span></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALIMTOK -->
+<section id="alimtok">
+  <div class="w">
+    <div class="lbl rv">Step 04 · 광고성과 알림설정</div>
+    <div class="ttl rv">매일 아침 <em>10초</em> 성과 확인</div>
+    <p class="sub rv">별도 신청 후 매일 오전 10시, 카카오 알림톡으로 전일 성과가 자동 도착합니다.</p>
+    <div class="alim-wrap rv">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="sidebar-mock">
+          <div class="mock-bar"><span class="md r"></span><span class="md y"></span><span class="md g"></span><div class="mock-url">adforest.co.kr</div></div>
+          <div class="sidebar-inner">
+            <div class="sidebar-nav">
+              <div class="sidebar-logo-area"><div class="sidebar-logo-icon"><span>AD</span></div><div class="sidebar-logo-txt">Forest</div></div>
+              <div class="sidebar-menu">
+                <div class="menu-item">⊞ 애드포레스트 홈</div>
+                <div class="menu-item">🔗 데이터 센터</div>
+                <div class="menu-item">📊 커스텀 보고서</div>
+                <div class="menu-item active">🔔 광고성과 알림설정</div>
+              </div>
+            </div>
+            <div class="sidebar-panel">
+              <div class="panel-title">광고성과 알림설정</div>
+              <div class="panel-card">
+                <div class="panel-card-title">알림톡 수신 설정</div>
+                <div class="panel-toggle-row"><span>카카오 알림톡 수신</span><div class="toggle"></div></div>
+                <div class="panel-time">발송 시각: 매일 오전 10:00</div>
+              </div>
+              <div class="panel-card">
+                <div class="panel-card-title">본인인증 상태</div>
+                <div class="status-row"><span class="status-dot"></span><span style="color:#16a34a;font-weight:600;font-size:9.5px">인증 완료</span><span style="color:var(--di);font-size:9px"> · 010-••••-••••</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="alim">
+          <div class="alim-hd"><div class="alim-from">💬 AdForest 광고 성과 알림</div><div class="alim-time">트리플하이엠 · 오전 10:00</div></div>
+          <div class="alim-bd">
+            <div class="alim-title">📊 어제 광고 성과 요약</div>
+            <div class="alim-row"><span class="alim-k">전일 매출</span><span class="alim-v up">₩3,240,000 ▲</span></div>
+            <div class="alim-row"><span class="alim-k">ROAS</span><span class="alim-v up">412% ▲</span></div>
+            <div class="alim-row"><span class="alim-k">유입수</span><span class="alim-v">1,840명</span></div>
+            <div class="alim-row"><span class="alim-k">전환수</span><span class="alim-v">38건</span></div>
+            <div class="alim-row"><span class="alim-k">광고비</span><span class="alim-v">₩786,400</span></div>
+            <div class="alim-row"><span class="alim-k">전주 대비</span><span class="alim-v up">매출 +18.4% ▲</span></div>
+          </div>
+          <div class="alim-ft"><button class="alim-btn">대시보드에서 자세히 보기</button></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div><div style="font-size:14px;font-weight:700;margin-bottom:5px">📅 매일 오전 10시 자동 발송</div><div style="font-size:13px;color:var(--mu);line-height:1.65">전날 광고 성과를 취합해 오전 10시 정각에 카카오 알림톡으로 발송합니다. 엑셀 취합 30분이 10초로 줄어듭니다.</div></div>
+        <div><div style="font-size:14px;font-weight:700;margin-bottom:5px">📈 핵심 지표 자동 요약</div><div style="font-size:13px;color:var(--mu);line-height:1.65">전일 매출 · ROAS · 유입수 · 전환수 · 광고비 · 전주 대비 증감을 한눈에 확인.</div></div>
+        <div class="warn-box">
+          <div class="warn-hd"><span>⚠️ 알림톡은 별도 신청이 필요합니다</span></div>
+          <div class="warn-body">
+            <div class="warn-desc">시스템 내 <b>광고성과 알림설정</b> 메뉴에서 본인인증(1회) 후 활성화됩니다. 대시보드·리포트와는 <b>별도로 신청</b>해 주세요.</div>
+            <div class="warn-step"><span class="warn-n">1</span>담당자에게 <b>"알림톡 신청"</b>으로 회신</div>
+            <div class="warn-step"><span class="warn-n">2</span>담당자가 알림톡 계정 활성화</div>
+            <div class="warn-step"><span class="warn-n">3</span><b>광고성과 알림설정</b>에서 <b>본인인증 1회</b> 완료</div>
+            <div class="warn-step"><span class="warn-n">4</span>다음 날 오전 <b>10시</b>부터 알림톡 수신 시작 🎉</div>
+          </div>
+        </div>
+        <div class="info-note">💡 대시보드·리포트는 API 연동 즉시 사용 가능.<br>알림톡은 위 4단계 완료 후 익일 오전 10시부터 수신됩니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section id="ai">
+  <div class="w">
+    <div class="lbl rv">AI Technology</div>
+    <div class="ttl rv">데이터가 <em>예측</em>합니다</div>
+    <p class="sub rv">400만 건 검색광고 데이터로 학습한 AI가 예산 변동 시 노출·클릭·전환을 미리 시뮬레이션합니다.</p>
+    <div class="ai-grid rv">
+      <div class="ai-card">
+        <div class="ai-lbl">Training Data</div>
+        <div class="ai-num">400<em>만+</em></div>
+        <div class="ai-sub-lbl">학습된 검색광고 데이터 건수</div>
+        <div class="ai-hr"></div>
+        <div class="ai-desc">검색광고(SA) 데이터를 기반으로 입력 광고비에 따른 <strong>노출수·클릭수·전환수·전환매출액</strong>을 예측합니다.</div>
+        <div class="ai-tags"><span class="ai-tag">노출수 예측</span><span class="ai-tag">클릭수 예측</span><span class="ai-tag">전환 예측</span><span class="ai-tag">매출 예측</span></div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-lbl">Algorithm</div>
+        <div class="ai-algo">XGBoost <em>Random Forest</em></div>
+        <div class="ai-sub-lbl" style="margin-top:5px;margin-bottom:16px">앙상블 기반 성과 예측 모델</div>
+        <div class="ai-hr"></div>
+        <div class="ai-desc"><strong>XGBoost 기반 랜덤포레스트 모델</strong>에 앙상블 학습을 결합. 배깅(Bagging) 방식으로 최종 예측값을 산출합니다.</div>
+        <div class="ai-tags"><span class="ai-tag">Google BigQuery</span><span class="ai-tag">Bagging Ensemble</span><span class="ai-tag">Hyperparameter Tuning</span></div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-lbl">Effect</div>
+        <div class="ai-num">20<em>~30%</em></div>
+        <div class="ai-sub-lbl">AI 자동 분석으로 절감 가능한 분석 인력</div>
+        <div class="ai-hr"></div>
+        <div class="ai-desc"><strong>광고비 상승/하락 시나리오</strong>별 전환율·ROI 성과를 미리 시뮬레이션하여 리스크를 최소화한 의사결정을 지원합니다.</div>
+        <div class="ai-tags"><span class="ai-tag">성과 시뮬레이션</span><span class="ai-tag">리스크 최소화</span><span class="ai-tag">ROI 예측</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROXY -->
+<section id="proxy">
+  <div class="w">
+    <div class="lbl rv" style="display:block;text-align:center">어렵다면 저희가 도와드립니다</div>
+    <div class="ttl rv" style="text-align:center">직접 가입 및 연동이<br><em>어려우시면</em></div>
+    <p class="sub rv" style="text-align:center;margin:0 auto 36px">저희가 임의 가입해서 공유드릴게요 😊<br>아래 두 가지만 전달 주시면 됩니다.</p>
+    <div class="proxy-cards rv">
+      <div class="proxy-card"><div class="proxy-card-icon">📧</div><div class="proxy-card-title">사용하실 이메일 주소</div><div class="proxy-card-desc">가입에 사용할 이메일을 담당자에게 전달해 주세요.</div></div>
+      <div class="proxy-card"><div class="proxy-card-icon">🔑</div><div class="proxy-card-title">네이버 API 정보</div><div class="proxy-card-desc">Customer ID · 액세스 라이선스 · 비밀키 3가지를 전달해 주세요.</div></div>
+    </div>
+    <div class="proxy-how rv">
+      <div class="proxy-how-title">📋 네이버 API 정보 가져오는 방법</div>
+      <div class="proxy-step"><span class="proxy-n">1</span>네이버 검색광고 <b>searchad.naver.com</b> 접속 → 로그인</div>
+      <div class="proxy-step"><span class="proxy-n">2</span>상단 <b>도구</b> 메뉴 → <b>API 사용 관리</b> 이동</div>
+      <div class="proxy-step"><span class="proxy-n">3</span><b>Customer ID · 액세스 라이선스 · 비밀키</b> 복사 후 전달</div>
+    </div>
+    <div class="agree-box rv">
+      <div class="agree-title">📌 임의 가입 진행 시 동의 사항</div>
+      <div class="agree-item"><span class="agree-check">✓</span>담당자가 제공해 주신 이메일 주소로 애드포레스트 계정을 대신 생성하는 것에 동의합니다.</div>
+      <div class="agree-item"><span class="agree-check">✓</span>네이버 API 정보(Customer ID · 라이선스 · 비밀키)를 연동 목적으로만 사용하는 것에 동의합니다.</div>
+      <div class="agree-item"><span class="agree-check">✓</span>가입 완료 후 계정 정보를 담당자를 통해 전달받는 것에 동의합니다.</div>
+      <div class="agree-note">위 사항에 동의하시면 담당자에게 <b>"임의 가입 동의합니다"</b>와 함께 이메일 주소 및 API 정보를 전달해 주세요.</div>
+    </div>
+    <div class="proxy-note rv">전달 주신 정보는 애드포레스트 연동 외 다른 용도로 사용되지 않습니다.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="w">
+    <div class="lbl rv" style="display:block;text-align:center">지금 시작하세요</div>
+    <div class="cta-ttl rv">내일 아침부터<br>달라집니다.</div>
+    <p class="cta-sub rv">별도 비용 없이, 복잡한 세팅 없이.<br>3분이면 내일 오전 10시 알림톡을 받을 수 있습니다.</p>
+    <p class="cta-hint rv">담당자에게 <strong>"솔루션"</strong>으로 회신 주시면 자세히 안내 도와드리겠습니다.</p>
+    <div class="cta-btns rv">
+      <a href="https://adforest.co.kr" target="_blank" class="btn-fill">솔루션 무료 시작하기 <svg viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 7.5h11M8 2l5 5.5L8 13"/></svg></a>
+    </div>
+    <div class="cta-stats rv">
+      <div><div class="cs-num">무료</div><div class="cs-lbl">참여자 전원 혜택</div></div>
+      <div><div class="cs-num">3분</div><div class="cs-lbl">소요 시간</div></div>
+      <div><div class="cs-num">익일 10시</div><div class="cs-lbl">알림톡 첫 수신</div></div>
+      <div><div class="cs-num">400만+</div><div class="cs-lbl">AI 학습 데이터</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="w">
+  <div>AdForest × Triple HM &nbsp;·&nbsp; 네이버 공식 프리미어 파트너</div>
+  <div>adforest.co.kr</div>
+</footer>
+<div class="ac-bar"></div>
+
+<script>
+// scroll reveal (optional enhancement)
+if('IntersectionObserver' in window){
+  const style = document.createElement('style');
+  style.textContent = '.rv{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}.rv.on{opacity:1;transform:none}';
+  document.head.appendChild(style);
+  const io = new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{threshold:.08});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+</script>
+</body>
+</html>
