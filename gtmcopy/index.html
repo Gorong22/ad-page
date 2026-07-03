@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="GTM, GA4, Google Ads, Naver WCS, Kakao, TikTok pixel practice commerce lab">
+  <title>NOVERA — GTM Commerce Lab</title>
+  <!-- Google Tag Manager HEAD 코드를 이 주석 아래에 직접 삽입하세요. -->
+  <style>
+:root{--ink:#11110f;--paper:#f7f5f0;--surface:#fff;--muted:#77736c;--line:#ddd8ce;--accent:#d95436;--dark:#171715;--green:#234d43;--radius:22px;--shadow:0 20px 60px rgba(30,24,16,.12);--max:1440px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,'Noto Sans KR',sans-serif;letter-spacing:-.02em}body.locked{overflow:hidden}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}main{max-width:var(--max);margin:0 auto;padding:34px 28px 100px;min-height:60vh}.announcement-bar{background:#171715;color:#fff;overflow:hidden}.announcement-track{max-width:var(--max);margin:auto;display:flex;justify-content:center;gap:60px;padding:10px 24px;font-size:12px;letter-spacing:.04em}.announcement-track a:hover{text-decoration:underline}.utility-bar{background:#efebe3;border-bottom:1px solid var(--line);font-size:11px}.utility-inner{max-width:var(--max);margin:auto;padding:8px 28px;display:flex;justify-content:space-between;gap:24px;color:#5d5952}.utility-left,.utility-inner nav{display:flex;gap:18px;align-items:center}.utility-inner nav a,.utility-inner nav button{border:0;background:none;padding:0;color:inherit}.site-header{position:sticky;top:0;z-index:50;background:rgba(247,245,240,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.header-main{max-width:var(--max);margin:auto;height:82px;padding:0 28px;display:grid;grid-template-columns:160px 1fr 360px;align-items:center}.brand{font-size:31px;font-weight:950;letter-spacing:.18em;justify-self:center}.round-icon{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#fff;display:none;align-items:center;justify-content:center;flex-direction:column;gap:4px}.round-icon span{width:17px;height:1px;background:var(--ink)}.header-tools{justify-self:end;display:flex;align-items:center;gap:20px}.tool-btn{border:0;background:none;display:flex;align-items:center;gap:7px;font-size:12px;font-weight:800;position:relative}.tool-btn b{position:absolute;right:-8px;top:-11px;background:var(--accent);color:#fff;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:10px}.icon-search,.icon-user,.icon-bag{width:17px;height:17px;display:inline-block;position:relative}.icon-search{border:1.7px solid var(--ink);border-radius:50%}.icon-search:after{content:'';position:absolute;width:7px;height:1.7px;background:var(--ink);right:-5px;bottom:-2px;transform:rotate(45deg)}.icon-user:before{content:'';position:absolute;left:4px;top:0;width:8px;height:8px;border:1.7px solid var(--ink);border-radius:50%}.icon-user:after{content:'';position:absolute;left:1px;bottom:0;width:14px;height:7px;border:1.7px solid var(--ink);border-radius:8px 8px 2px 2px}.icon-bag{border:1.7px solid var(--ink);border-radius:2px;margin-top:3px}.icon-bag:before{content:'';position:absolute;width:7px;height:5px;border:1.7px solid var(--ink);border-bottom:0;border-radius:5px 5px 0 0;left:3px;top:-6px}.desktop-nav{height:48px;display:flex;justify-content:center;align-items:stretch;gap:25px;border-top:1px solid rgba(221,216,206,.7)}.nav-item{position:static;display:flex;align-items:stretch}.nav-link{border:0;background:none;display:flex;align-items:center;padding:0 3px;font-size:12px;font-weight:850;letter-spacing:.07em;position:relative}.nav-link:after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ink);transform:scaleX(0);transition:.2s}.nav-link:hover:after,.nav-item:hover>.nav-link:after{transform:scaleX(1)}.mega-menu{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 18px 45px rgba(0,0,0,.09);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s}.nav-item:hover .mega-menu,.nav-item:focus-within .mega-menu{opacity:1;visibility:visible;transform:none}.mega-menu-inner{max-width:1100px;margin:auto;padding:34px 28px;display:grid;grid-template-columns:300px 1fr;gap:50px}.mega-intro span,.page-hero>span,.section-title>span,.section-heading span,.eyebrow,.popup-kicker{font-size:11px;letter-spacing:.14em;font-weight:900;color:var(--accent)}.mega-intro strong{display:block;font-size:34px;margin:8px 0}.mega-intro p{color:var(--muted);font-size:13px;line-height:1.6}.mega-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.mega-links a{padding:13px 14px;border:1px solid var(--line);border-radius:12px;font-size:13px;font-weight:700}.mega-links a:hover{background:var(--ink);color:#fff}.mobile-drawer,.drawer-backdrop{display:none}.search-overlay{position:fixed;inset:0;z-index:80;background:rgba(15,14,12,.68);display:none;align-items:flex-start;justify-content:center;padding-top:110px}.search-overlay.open{display:flex}.search-panel{width:min(920px,calc(100% - 30px));background:#fff;border-radius:24px;padding:30px;box-shadow:var(--shadow)}.search-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;font-size:12px;font-weight:900;letter-spacing:.14em}.search-head button,.popup-close-x{border:0;background:none;font-size:30px;line-height:1}.search-panel label{display:block;font-size:30px;font-weight:900;margin-bottom:15px}.search-input-row{display:grid;grid-template-columns:1fr 110px;border-bottom:2px solid var(--ink)}.search-input-row input{border:0;padding:15px 0;font-size:18px;outline:none}.search-input-row button{border:0;background:var(--ink);color:#fff;font-weight:800}.quick-keywords{margin-top:26px;display:grid;grid-template-columns:120px 1fr;gap:15px}.quick-keywords>div{display:flex;gap:8px;flex-wrap:wrap}.quick-keywords button{border:1px solid var(--line);background:#f8f6f1;border-radius:999px;padding:8px 12px}.hero-section{display:grid;grid-template-columns:1.08fr .92fr;min-height:620px;border-radius:30px;overflow:hidden;background:#1e201c;color:#fff}.hero-copy{padding:70px 65px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}.hero-copy h1{font-size:clamp(58px,7vw,104px);line-height:.89;letter-spacing:-.07em;margin:20px 0}.hero-copy p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.72);max-width:590px}.hero-actions{display:flex;gap:10px;margin-top:28px}.hero-visual{background:linear-gradient(135deg,#d0bca3,#efe4d3);position:relative;display:grid;place-items:center;color:#5e554b;font-size:11px;letter-spacing:.1em}.abstract-hat{width:330px;height:190px;border:48px solid #161614;border-bottom-width:66px;border-radius:80% 80% 48% 48%;transform:rotate(-8deg);position:relative}.abstract-hat:after{content:'';position:absolute;width:210px;height:66px;background:#161614;border-radius:50%;right:-76px;bottom:-72px;transform:rotate(-2deg)}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid var(--ink);font-weight:850;font-size:13px}.btn.dark{background:var(--ink);color:#fff}.btn.light,.btn.outline{background:#fff;color:var(--ink)}.btn.white{background:#fff;color:#111;border-color:#fff}.btn.full{width:100%;border-radius:13px}.shortcut-section,.home-section{margin-top:82px}.section-title,.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}.section-title h2,.section-heading h2{font-size:44px;margin:8px 0 0}.shortcut-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.shortcut-card{min-height:145px;border:1px solid var(--line);border-radius:18px;background:#fff;padding:19px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}.shortcut-card:hover{background:var(--ink);color:#fff;transform:translateY(-3px)}.shortcut-card span{font-size:11px;color:var(--muted)}.shortcut-card strong{font-size:23px}.shortcut-card em{font-size:11px;font-style:normal;letter-spacing:.1em}.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.product-card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:14px;display:flex;flex-direction:column;gap:11px;min-width:0}.product-visual{height:270px;border-radius:14px;background:linear-gradient(135deg,var(--tone1),var(--tone2));position:relative;display:flex;align-items:flex-end;justify-content:space-between;padding:14px;color:rgba(0,0,0,.55);font-size:10px;letter-spacing:.08em;overflow:hidden}.product-visual:before{content:'';position:absolute;width:130px;height:76px;border:20px solid #171715;border-bottom-width:29px;border-radius:80% 80% 48% 48%;left:50%;top:45%;transform:translate(-50%,-50%) rotate(-6deg)}.product-visual:after{content:'';position:absolute;width:90px;height:27px;background:#171715;border-radius:50%;left:56%;top:64%;transform:translate(-50%,-50%) rotate(-7deg)}.product-visual span,.product-visual b{position:relative;z-index:2}.product-visual.detail{height:650px;border-radius:28px}.product-visual.detail:before{width:300px;height:170px;border-width:45px;border-bottom-width:62px}.product-visual.detail:after{width:210px;height:66px}.product-visual.mini{width:72px;height:72px;border-radius:12px;padding:7px;flex:none}.product-visual.mini:before{width:36px;height:21px;border-width:6px;border-bottom-width:9px}.product-visual.mini:after{width:26px;height:8px}.product-visual.mini span,.product-visual.mini b{display:none}.product-meta,.price-line{display:flex;align-items:center;gap:8px}.product-meta{justify-content:space-between;color:var(--muted);font-size:11px}.badge{border:1px solid var(--line);border-radius:999px;padding:4px 7px;color:var(--ink)}.product-title{font-size:16px;font-weight:800;line-height:1.45;min-height:46px}.price-line strong{font-size:18px}.price-line s{font-size:12px;color:#999}.price-line em{font-size:12px;font-style:normal;color:var(--accent);font-weight:900}.product-actions{display:grid;grid-template-columns:45px 1fr;gap:7px;margin-top:auto}.product-actions button{height:42px;border:1px solid var(--line);background:#fff;border-radius:10px;font-weight:800}.product-actions button:last-child{background:var(--ink);color:#fff}.campaign-strip{margin-top:90px;background:#cc563b;color:#fff;border-radius:30px;padding:55px;display:flex;justify-content:space-between;align-items:end}.campaign-strip h2{font-size:55px;line-height:.95;margin:12px 0}.campaign-strip p{color:rgba(255,255,255,.75)}.benefit-grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.benefit-grid>a,.benefit-grid>button{border:1px solid var(--line);background:#fff;border-radius:18px;padding:22px;text-align:left;display:flex;min-height:170px;flex-direction:column;align-items:flex-start}.benefit-grid span{font-size:10px;color:var(--accent);font-weight:900}.benefit-grid strong{font-size:21px;margin-top:auto}.benefit-grid p{margin:7px 0 0;color:var(--muted);font-size:12px}.page-hero{padding:64px 0 38px;border-bottom:1px solid var(--line);margin-bottom:26px}.page-hero.compact{padding-top:35px}.page-hero h1{font-size:64px;margin:10px 0 6px}.page-hero p{color:var(--muted)}.list-toolbar{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}.category-tabs{display:flex;gap:7px;flex-wrap:wrap}.category-tabs a,.board-tabs a{border:1px solid var(--line);border-radius:999px;padding:8px 11px;background:#fff;font-size:11px;font-weight:800}.list-toolbar label{font-size:11px;display:grid;gap:6px}.list-toolbar select{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px}.breadcrumb{display:flex;gap:8px;font-size:11px;color:var(--muted);margin:14px 0 24px}.detail-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:35px}.detail-thumbs{display:flex;gap:8px;margin-top:10px}.detail-thumbs button{width:46px;height:46px;border:1px solid var(--line);background:#fff;border-radius:8px}.detail-info{background:#fff;border:1px solid var(--line);border-radius:28px;padding:36px;align-self:start;position:sticky;top:150px}.detail-info h1{font-size:44px;line-height:1.08;margin:14px 0 5px}.en-name{color:var(--muted)}.detail-price{display:flex;gap:10px;align-items:baseline;margin:23px 0}.detail-price strong{font-size:30px}.detail-price s{color:#999}.detail-price em{font-style:normal;color:var(--accent);font-weight:900}.detail-spec{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;display:grid;gap:10px}.detail-spec div{display:flex;justify-content:space-between}.detail-spec dt{color:var(--muted)}.select-field{display:grid;gap:8px;margin:20px 0}.select-field select{padding:13px;border:1px solid var(--line);border-radius:10px;background:#fff}.quantity-row{display:flex;justify-content:space-between;align-items:center}.quantity-control{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}.quantity-control button,.quantity-control input{width:42px;height:40px;border:0;background:#fff;text-align:center}.quantity-control input{border-left:1px solid var(--line);border-right:1px solid var(--line)}.detail-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}.detail-secondary{display:flex;justify-content:space-between;margin-top:15px}.detail-secondary button{border:0;background:none;color:var(--muted)}.detail-tabs{display:grid;grid-template-columns:repeat(4,1fr);margin-top:70px;border:1px solid var(--line);border-radius:14px;overflow:hidden}.detail-tabs button{padding:16px;border:0;border-right:1px solid var(--line);background:#fff}.product-description{padding:110px 20px;text-align:center}.product-description h2{font-size:50px}.product-description p{color:var(--muted)}.inline-search{display:flex;max-width:620px;margin-top:20px}.inline-search input{flex:1;padding:14px;border:1px solid var(--line);border-radius:12px 0 0 12px}.inline-search button{border:0;background:var(--ink);color:#fff;padding:0 24px;border-radius:0 12px 12px 0}.cart-layout,.checkout-layout{display:grid;grid-template-columns:1fr 370px;gap:22px}.cart-list,.checkout-box,.order-summary,.purchase-detail,.account-header,.auth-main,.social-login,.oauth-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}.cart-head{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:15px}.cart-head button{border:0;background:none}.cart-line{display:grid;grid-template-columns:auto 72px 1fr auto auto;gap:14px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}.cart-copy{display:flex;flex-direction:column;gap:5px}.cart-copy a{font-weight:800}.cart-copy span{font-size:12px;color:var(--muted)}.line-remove{border:0;background:none;color:var(--muted)}.order-summary{align-self:start;position:sticky;top:150px}.order-summary h2{font-size:24px}.order-summary dl{display:grid;gap:13px}.order-summary dl div{display:flex;justify-content:space-between}.order-summary .total{border-top:1px solid var(--line);padding-top:15px;font-size:20px;font-weight:900}.order-summary>a{display:block;text-align:center;margin-top:15px;color:var(--muted);font-size:12px}.auth-shell{max-width:1000px;margin:55px auto;display:grid;grid-template-columns:1.05fr .95fr;gap:20px}.auth-main h1{font-size:50px}.auth-main p,.social-login p{color:var(--muted)}.auth-main form,.agreement-box{display:grid;gap:14px;margin-top:25px}.auth-main label{display:grid;gap:7px;font-size:12px;font-weight:700}.auth-main input{padding:13px;border:1px solid var(--line);border-radius:10px}.auth-links{display:flex;justify-content:center;gap:16px;margin-top:16px;font-size:11px}.guest-purchase{border-top:1px solid var(--line);margin-top:20px;padding-top:20px;display:grid;gap:10px}.social-login{background:#eee9df}.social-btn{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px 16px;margin-top:9px;display:flex;justify-content:space-between;font-weight:800}.social-btn.kakao{background:#fee500}.social-btn.naver{background:#03c75a;color:#fff}.agreement-box{border:1px solid var(--line);padding:15px;border-radius:12px}.agreement-box label{display:flex;grid-template-columns:none}.oauth-card{max-width:620px;margin:70px auto;text-align:center}.oauth-symbol{width:80px;height:80px;border-radius:22px;background:#111;color:#fff;display:grid;place-items:center;font-size:35px;font-weight:900;margin:0 auto 18px}.oauth-symbol.kakao{background:#fee500;color:#111}.oauth-symbol.naver{background:#03c75a}.oauth-card h1{font-size:42px}.oauth-card dl{border:1px solid var(--line);border-radius:12px;padding:15px;text-align:left}.oauth-card dl div{display:flex;justify-content:space-between;margin:8px}.checkout-main{display:grid;gap:16px}.checkout-box h2{margin-top:0}.checkout-line{display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:center;border-top:1px solid var(--line);padding:14px 0}.checkout-line div{display:flex;flex-direction:column;gap:5px}.checkout-line span{font-size:12px;color:var(--muted)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid label{display:grid;gap:7px;font-size:12px}.form-grid label.wide{grid-column:1/-1}.form-grid input{padding:12px;border:1px solid var(--line);border-radius:10px}.option-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.option-cards label{border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;gap:10px}.option-cards span{display:flex;flex-direction:column}.option-cards small{color:var(--muted)}.check-row{display:flex!important;align-items:center;gap:8px!important;font-size:12px}.check-row input{width:auto!important}.safe-note{text-align:center;color:var(--muted);font-size:11px}.purchase-complete{background:var(--green);color:#fff;border-radius:26px;padding:60px;text-align:center}.purchase-complete h1{font-size:50px}.purchase-detail{max-width:900px;margin:20px auto}.purchase-detail>article{display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:center;border-top:1px solid var(--line);padding:15px 0}.purchase-detail article div{display:flex;flex-direction:column}.purchase-detail article span{color:var(--muted);font-size:12px}.purchase-detail dl{border-top:1px solid var(--line);padding-top:15px}.purchase-detail dl div{display:flex;justify-content:space-between;margin:10px}.purchase-detail .total{font-size:21px;font-weight:900}.center-actions{display:flex;justify-content:center;gap:8px;margin-top:22px}.account-header{display:flex;justify-content:space-between;align-items:end;margin:40px 0 20px}.account-header h1{font-size:42px}.account-header dl{display:flex;gap:25px}.account-header dl div{display:flex;flex-direction:column}.account-header dt{color:var(--muted);font-size:11px}.order-history{display:grid;gap:10px}.order-history article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;grid-template-columns:180px 1fr 120px 80px;gap:14px;align-items:center}.order-history article div{display:flex;flex-direction:column}.order-history article span{font-size:11px;color:var(--muted)}.order-history button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px}.board-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.board-tabs a.active{background:var(--ink);color:#fff}.board-list{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.board-list article{display:grid;grid-template-columns:60px 1fr 120px;gap:12px;padding:18px;border-bottom:1px solid var(--line)}.board-list article button{border:0;background:none;text-align:left;font-weight:700}.board-list time{color:var(--muted);font-size:12px}.pagination{text-align:center;margin-top:20px}.pagination button{width:38px;height:38px;border:1px solid var(--line);background:#fff}.editorial-grid,.celebrity-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.editorial-grid article,.celebrity-grid article{background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px}.editorial-art,.portrait-placeholder{height:430px;border-radius:16px;background:linear-gradient(135deg,#cfc2b2,#e9e1d6);display:grid;place-items:center;font-size:40px;font-weight:900;letter-spacing:-.05em}.art-2{background:linear-gradient(135deg,#9aaeb3,#dae5e8)}.art-3{background:linear-gradient(135deg,#8d857d,#ddd4ca)}.art-4{background:linear-gradient(135deg,#b57d68,#ead3c8)}.editorial-grid article>span{display:block;margin-top:15px;color:var(--accent);font-size:10px;font-weight:900}.editorial-grid button{border:0;background:none;padding:0;font-weight:900}.celebrity-grid{grid-template-columns:repeat(3,1fr)}.portrait-placeholder{height:360px;background:linear-gradient(160deg,#d9d2c7,#9a948b);font-size:18px}.celebrity-grid h2{font-size:22px}.celebrity-grid p{color:var(--muted)}.celebrity-grid a{font-weight:900;font-size:12px}.empty-state{grid-column:1/-1;background:#fff;border:1px solid var(--line);border-radius:20px;padding:80px;text-align:center}.empty-state strong{display:block;font-size:28px;margin-bottom:20px}.site-footer{background:#171715;color:#fff;margin-top:60px}.footer-grid{max-width:var(--max);margin:auto;padding:60px 28px;display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:45px}.footer-grid section{display:flex;flex-direction:column;gap:10px}.footer-brand{font-size:28px;font-weight:950;letter-spacing:.18em}.footer-grid p{color:rgba(255,255,255,.6);line-height:1.7}.footer-grid h3{font-size:11px;color:#aaa;letter-spacing:.12em}.footer-grid a,.footer-grid button{font-size:12px;color:#fff}.text-button{border:0;background:none;padding:0;text-align:left}.identity-list{font-family:monospace;font-size:10px;display:grid;gap:7px}.identity-list div{display:grid;grid-template-columns:90px 1fr}.identity-list dt{color:#888}.identity-list dd{margin:0;overflow-wrap:anywhere}.footer-bottom{border-top:1px solid rgba(255,255,255,.13);max-width:var(--max);margin:auto;padding:18px 28px;display:flex;justify-content:space-between;color:#888;font-size:10px}.modal-backdrop{position:fixed;inset:0;background:rgba(15,14,12,.68);z-index:100;display:grid;place-items:center;padding:20px}.campaign-popup{width:min(690px,100%);background:#fff;border-radius:24px;overflow:hidden;position:relative;box-shadow:var(--shadow)}.popup-close-x{position:absolute;right:18px;top:14px;z-index:2}.popup-slide{display:none;min-height:420px;padding:54px;background:linear-gradient(135deg,#f1e9dc,#d6c3aa);align-content:center}.popup-slide:nth-child(2){background:linear-gradient(135deg,#d9e4e7,#8fa9af)}.popup-slide:nth-child(3){background:linear-gradient(135deg,#e3d1ca,#b7735d)}.popup-slide.active{display:grid}.popup-slide h2{font-size:52px;line-height:.95;margin:15px 0}.popup-slide p{max-width:430px;line-height:1.6}.popup-cta{justify-self:start;background:#171715;color:#fff;border-radius:999px;padding:13px 20px;font-weight:900;margin-top:16px}.popup-controls{display:grid;grid-template-columns:45px 1fr 45px;align-items:center;padding:12px 20px;border-top:1px solid var(--line)}.popup-controls>button{border:0;background:none;font-size:18px}.popup-dots{display:flex;justify-content:center;gap:7px}.popup-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#ccc}.popup-dots button.active{background:#111}.popup-bottom{display:flex;justify-content:space-between;border-top:1px solid var(--line)}.popup-bottom button{border:0;background:#fff;padding:15px 20px;font-size:12px}.benefit-float{position:fixed;right:24px;bottom:25px;z-index:60;width:72px;height:72px;border:0;border-radius:50%;background:var(--accent);color:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center}.benefit-float span{font-size:10px}.benefit-float b{font-size:20px}.newsletter-popup{width:min(520px,100%);background:#fff;border-radius:24px;padding:42px;position:relative}.newsletter-popup h2{font-size:40px;margin:12px 0}.newsletter-popup p{color:var(--muted)}.newsletter-popup form{display:grid;gap:14px}.newsletter-popup label{display:grid;gap:7px;font-size:12px}.newsletter-popup input[type=email]{padding:13px;border:1px solid var(--line);border-radius:10px}.newsletter-popup form>button{border:0;background:var(--ink);color:#fff;padding:14px;border-radius:10px;font-weight:900}.newsletter-success{text-align:center;padding:30px}.newsletter-success strong{font-size:28px}.consent-banner{position:fixed;left:20px;right:20px;bottom:18px;z-index:90;max-width:920px;margin:auto;background:#171715;color:#fff;border-radius:18px;padding:17px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;box-shadow:var(--shadow)}.consent-banner p{margin:5px 0 0;color:#aaa;font-size:12px}.consent-banner>div:last-child{display:flex;gap:7px}.consent-banner button{border:1px solid #555;background:transparent;color:#fff;border-radius:9px;padding:10px 12px}.consent-banner .primary{background:#fff;color:#111}.site-toast{position:fixed;left:50%;bottom:35px;z-index:130;transform:translate(-50%,20px);opacity:0;background:#111;color:#fff;border-radius:999px;padding:13px 20px;transition:.2s;pointer-events:none}.site-toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1100px){.header-main{grid-template-columns:80px 1fr 250px}.round-icon{display:flex}.desktop-nav{display:none}.mobile-drawer{display:block;position:fixed;left:0;top:0;bottom:0;width:min(420px,88vw);z-index:90;background:#fff;transform:translateX(-103%);transition:.25s;overflow:auto}.mobile-drawer.open{transform:none}.drawer-backdrop{display:block;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:85;opacity:0;visibility:hidden;transition:.2s}.drawer-backdrop.show{opacity:1;visibility:visible}.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:22px;border-bottom:1px solid var(--line)}.drawer-head button{border:0;background:none;font-size:30px}.drawer-utility{display:grid;grid-template-columns:repeat(4,1fr);font-size:10px;text-align:center;border-bottom:1px solid var(--line)}.drawer-utility a{padding:14px 4px;border-right:1px solid var(--line)}.drawer-nav{padding:15px}.drawer-link,.drawer-group summary{display:flex;justify-content:space-between;padding:15px 5px;border-bottom:1px solid var(--line);font-weight:900}.drawer-group summary{list-style:none}.drawer-submenu{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:10px 0}.drawer-submenu a{padding:10px;background:#f4f1eb;border-radius:8px;font-size:11px}.product-grid{grid-template-columns:repeat(3,1fr)}.shortcut-grid{grid-template-columns:repeat(3,1fr)}.benefit-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1.5fr 1fr 1fr}.footer-grid section:last-child{grid-column:1/-1}.celebrity-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){main{padding:20px 15px 70px}.announcement-track{justify-content:flex-start;overflow:hidden;white-space:nowrap}.announcement-track a:nth-child(2){display:none}.utility-bar{display:none}.header-main{height:68px;padding:0 15px;grid-template-columns:55px 1fr 120px}.brand{font-size:22px}.header-tools{gap:10px}.tool-btn span{display:none}.tool-btn:nth-child(2){display:none}.hero-section{grid-template-columns:1fr;min-height:auto}.hero-copy{padding:48px 28px}.hero-copy h1{font-size:58px}.hero-visual{min-height:380px}.abstract-hat{transform:scale(.75) rotate(-8deg)}.section-title h2,.section-heading h2{font-size:34px}.shortcut-grid{grid-template-columns:repeat(2,1fr)}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-card{padding:10px}.product-visual{height:205px}.product-title{font-size:14px}.campaign-strip{padding:35px;display:block}.campaign-strip h2{font-size:40px}.campaign-strip .btn{margin-top:20px}.page-hero h1{font-size:46px}.list-toolbar{align-items:flex-start;flex-direction:column}.detail-layout,.cart-layout,.checkout-layout,.auth-shell{grid-template-columns:1fr}.detail-info,.order-summary{position:static}.product-visual.detail{height:430px}.detail-info{padding:24px}.detail-info h1{font-size:34px}.detail-tabs{grid-template-columns:repeat(2,1fr)}.cart-line{grid-template-columns:auto 55px 1fr}.cart-line .quantity-control,.cart-line .line-remove{grid-column:3}.option-cards{grid-template-columns:1fr}.account-header{display:block}.account-header dl{margin-top:20px}.order-history article{grid-template-columns:1fr}.editorial-grid,.celebrity-grid{grid-template-columns:1fr}.editorial-art{height:330px}.footer-grid{grid-template-columns:1fr 1fr;padding:45px 18px}.footer-grid section:first-child,.footer-grid section:last-child{grid-column:1/-1}.footer-bottom{display:block;padding:18px}.search-overlay{padding-top:60px}.search-panel label{font-size:23px}.quick-keywords{grid-template-columns:1fr}.popup-slide{padding:42px 28px;min-height:390px}.popup-slide h2{font-size:40px}.consent-banner{grid-template-columns:1fr;left:10px;right:10px;bottom:10px}.benefit-float{width:62px;height:62px;right:14px;bottom:95px}}
+@media(max-width:460px){.product-grid{grid-template-columns:1fr}.shortcut-grid,.benefit-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column;width:100%}.hero-actions .btn{width:100%}.footer-grid{grid-template-columns:1fr}.footer-grid section{grid-column:1!important}.campaign-popup{border-radius:18px}.popup-slide{min-height:360px}}
+
+</style>
+</head>
+<body data-route-path="index.html" data-route-query="">
+  <!-- Google Tag Manager NOSCRIPT 코드를 이 주석 아래에 직접 삽입하세요. -->
+  <div data-site-header></div>
+  <main data-page="home"></main>
+  <div data-site-footer></div>
+  <script>
+(() => {
+  'use strict';
+
+  const ROUTE_PARAM = '__route';
+  const routeValue = () => new URLSearchParams(location.search).get(ROUTE_PARAM) || 'index.html';
+  const routeParts = () => {
+    const route = routeValue().replace(/^\//, '');
+    const question = route.indexOf('?');
+    return {
+      path: question >= 0 ? route.slice(0, question) : route,
+      search: question >= 0 ? route.slice(question + 1) : ''
+    };
+  };
+  const rootUrl = (path = 'index.html') => {
+    const clean = String(path || 'index.html').replace(/^\//, '');
+    const url = new URL(location.href);
+    url.search = '';
+    url.hash = '';
+    if (clean && clean !== 'index.html') url.searchParams.set(ROUTE_PARAM, clean);
+    return url.href;
+  };
+  const go = (path) => { location.href = rootUrl(path); };
+  const $ = (selector, scope = document) => scope.querySelector(selector);
+  const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+  const query = (key, fallback = '') => {
+    const routeParams = new URLSearchParams(routeParts().search);
+    if (routeParams.has(key)) return routeParams.get(key) ?? fallback;
+    const pageParams = new URLSearchParams(location.search);
+    return pageParams.get(key) ?? fallback;
+  };
+  const number = value => Number(value || 0);
+  const won = value => `${number(value).toLocaleString('ko-KR')}원`;
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const todayKey = () => new Date().toISOString().slice(0, 10);
+
+  const PRODUCTS = [
+    {id:'N1001',name:'Contour Curve Ball Cap Beige',nameKo:'컨투어 커브 볼캡 베이지',category:'BALL CAP',category2:'CURVE',season:'26 SPRING',material:'COTTON',price:39900,originalPrice:42000,variant:'Beige',stock:34,badge:'BEST',tone1:'#d8c8b2',tone2:'#f0e8dc'},
+    {id:'N1002',name:'Minimal Stud Ball Cap Black',nameKo:'미니멀 스터드 볼캡 블랙',category:'BALL CAP',category2:'STUD',season:'26 SPRING',material:'COTTON',price:45900,originalPrice:49000,variant:'Black',stock:16,badge:'NEW',tone1:'#858585',tone2:'#d4d4d4'},
+    {id:'N1003',name:'Washed Denim Ball Cap Blue',nameKo:'워시드 데님 볼캡 블루',category:'BALL CAP',category2:'DENIM',season:'26 SUMMER',material:'DENIM',price:41900,originalPrice:46000,variant:'Blue',stock:12,badge:'NEW',tone1:'#98b7c9',tone2:'#dce8ee'},
+    {id:'N2001',name:'Light Nylon Bucket Hat Khaki',nameKo:'라이트 나일론 버킷햇 카키',category:'BUCKET HAT',category2:'NYLON',season:'26 SUMMER',material:'NYLON',price:42900,originalPrice:47000,variant:'Khaki',stock:22,badge:'BEST',tone1:'#aaa88f',tone2:'#e6e2cd'},
+    {id:'N2002',name:'Utility String Bucket Hat Navy',nameKo:'유틸리티 스트링 버킷햇 네이비',category:'BUCKET HAT',category2:'STRING',season:'26 SUMMER',material:'NYLON',price:46900,originalPrice:52000,variant:'Navy',stock:8,badge:'SALE',tone1:'#748397',tone2:'#d6dde4'},
+    {id:'N3001',name:'Soft Ribbed Beanie Charcoal',nameKo:'소프트 리브드 비니 차콜',category:'BEANIE',category2:'RIBBED',season:'26 WINTER',material:'KNIT',price:29900,originalPrice:33000,variant:'Charcoal',stock:29,badge:'BEST',tone1:'#9b9894',tone2:'#dedad6'},
+    {id:'N3002',name:'Short Watch Beanie Cream',nameKo:'숏 와치 비니 크림',category:'BEANIE',category2:'WATCH',season:'26 WINTER',material:'KNIT',price:31900,originalPrice:35000,variant:'Cream',stock:18,badge:'NEW',tone1:'#ded5c4',tone2:'#f4eee3'},
+    {id:'N4001',name:'Ribbon Bonnet Hat Black',nameKo:'리본 보닛햇 블랙',category:'BONNET HAT',category2:'RIBBON',season:'26 SUMMER',material:'MESH',price:42750,originalPrice:45000,variant:'Black',stock:14,badge:'BEST',tone1:'#a8a4a0',tone2:'#e1ddd7'},
+    {id:'N5001',name:'Monogram Pillbox Cap Navy',nameKo:'모노그램 필박스 캡 네이비',category:'PILLBOX CAP',category2:'MONOGRAM',season:'26 SPRING',material:'TWILL',price:45600,originalPrice:48000,variant:'Navy',stock:10,badge:'NEW',tone1:'#8794a4',tone2:'#d9dfe5'},
+    {id:'N6001',name:'Nylon Camp Cap Gray',nameKo:'나일론 캠프캡 그레이',category:'CAMP CAP',category2:'CAMP',season:'26 SUMMER',material:'NYLON',price:43900,originalPrice:48000,variant:'Gray',stock:17,badge:'NEW',tone1:'#abb2b7',tone2:'#e1e5e7'},
+    {id:'N7001',name:'Logo T-shirt White',nameKo:'로고 티셔츠 화이트',category:'CLOTHING',category2:'T-SHIRT',season:'26 SUMMER',material:'COTTON',price:37050,originalPrice:39000,variant:'White / M',stock:42,badge:'SALE',tone1:'#ddd9d2',tone2:'#f5f3ef'},
+    {id:'N8001',name:'Mini Pouch Black',nameKo:'미니 파우치 블랙',category:'ACC',category2:'POUCH',season:'ALL',material:'NYLON',price:24900,originalPrice:29000,variant:'Black',stock:25,badge:'EXCLUSIVE',tone1:'#777',tone2:'#ccc'}
+  ];
+
+  const STORE = {
+    cart:'novera_lab_cart_v3',
+    orders:'novera_lab_orders_v3',
+    profile:'novera_lab_profile_v3',
+    anon:'novera_lab_anon_v3',
+    popupDay:'novera_lab_popup_day_v3',
+    consent:'novera_lab_consent_v3'
+  };
+
+  function read(key, fallback) {
+    try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : fallback; }
+    catch { return fallback; }
+  }
+  function write(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} }
+  function sread(key, fallback) { try { const raw = sessionStorage.getItem(key); return raw ? JSON.parse(raw) : fallback; } catch { return fallback; } }
+  function swrite(key, value) { try { sessionStorage.setItem(key, JSON.stringify(value)); } catch {} }
+  function makeId(prefix) { return `${prefix}_${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36).slice(-5)}`; }
+
+  function identity() {
+    let anon = read(STORE.anon, '');
+    if (!anon) { anon = makeId('anon'); write(STORE.anon, anon); }
+    const profile = read(STORE.profile, null);
+    return {
+      anonymousId: anon,
+      loginStatus: profile ? 'member' : 'guest',
+      userId: profile?.memberId || '',
+      memberGrade: profile?.grade || 'GUEST'
+    };
+  }
+  function applyIdentity() {
+    const id = identity();
+    document.body.dataset.anonymousId = id.anonymousId;
+    document.body.dataset.loginStatus = id.loginStatus;
+    document.body.dataset.userId = id.userId;
+    document.body.dataset.memberGrade = id.memberGrade;
+    $$('[data-identity-anonymous]').forEach(el => el.textContent = id.anonymousId);
+    $$('[data-identity-login]').forEach(el => el.textContent = id.loginStatus);
+    $$('[data-identity-user]').forEach(el => el.textContent = id.userId || '-');
+    $$('[data-identity-grade]').forEach(el => el.textContent = id.memberGrade);
+  }
+
+  function product(id) { return PRODUCTS.find(p => p.id === String(id)) || PRODUCTS[0]; }
+  function cart() { return read(STORE.cart, []); }
+  function saveCart(rows) { write(STORE.cart, rows); updateCartCount(); }
+  function cartCount() { return cart().reduce((sum, row) => sum + number(row.quantity), 0); }
+  function addCart(itemId, quantity = 1, variant = '') {
+    const rows = cart();
+    const p = product(itemId);
+    const finalVariant = variant || p.variant;
+    const found = rows.find(row => row.itemId === p.id && row.variant === finalVariant);
+    if (found) found.quantity += Math.max(1, number(quantity));
+    else rows.push({itemId:p.id, quantity:Math.max(1, number(quantity)), variant:finalVariant, selected:true});
+    saveCart(rows);
+  }
+  function cartLines(rows = cart()) { return rows.map(row => ({...row, item:product(row.itemId)})); }
+  function totals(rows = cart()) {
+    const lines = cartLines(rows);
+    const subtotal = lines.reduce((sum, row) => sum + row.item.price * row.quantity, 0);
+    const shipping = subtotal === 0 || subtotal >= 50000 ? 0 : 3000;
+    const discount = 0;
+    return {lines, subtotal, shipping, discount, total:subtotal + shipping - discount};
+  }
+
+  function dataset(obj) {
+    return Object.entries(obj).map(([key, value]) => `data-${key.replace(/[A-Z]/g, m => '-' + m.toLowerCase())}="${esc(value)}"`).join(' ');
+  }
+  function itemData(p, extra = {}) {
+    return {
+      itemId:p.id,
+      itemName:p.nameKo,
+      itemNameEn:p.name,
+      itemBrand:'NOVERA',
+      itemCategory:p.category,
+      itemCategory2:p.category2,
+      itemVariant:p.variant,
+      itemSeason:p.season,
+      itemMaterial:p.material,
+      price:p.price,
+      originalPrice:p.originalPrice,
+      discount:p.originalPrice - p.price,
+      currency:'KRW',
+      ...extra
+    };
+  }
+
+  function bindRoutes(scope = document) {
+    $$('[data-route]', scope).forEach(el => {
+      const path = el.dataset.route;
+      if (el.tagName === 'A') el.href = rootUrl(path);
+      if (!el.dataset.routeBound && el.tagName !== 'A') {
+        el.dataset.routeBound = '1';
+        el.addEventListener('click', () => go(path));
+      }
+    });
+  }
+  function updateCartCount() { $$('[data-cart-count]').forEach(el => el.textContent = String(cartCount())); }
+
+  const menuGroups = [
+    {label:'BEST', route:'product/list.html?collection=best', action:'gnb-best'},
+    {label:'NEW', route:'product/list.html?collection=new', action:'gnb-new'},
+    {label:'STYLE', action:'gnb-style', children:[
+      ['BALL CAP','product/list.html?category=BALL%20CAP'],['BUCKET HAT','product/list.html?category=BUCKET%20HAT'],['BEANIE','product/list.html?category=BEANIE'],['BONNET HAT','product/list.html?category=BONNET%20HAT'],['PILLBOX CAP','product/list.html?category=PILLBOX%20CAP'],['CAMP CAP','product/list.html?category=CAMP%20CAP']
+    ]},
+    {label:'SEASON', action:'gnb-season', children:[
+      ['26 SPRING','product/list.html?season=26%20SPRING'],['26 SUMMER','product/list.html?season=26%20SUMMER'],['26 WINTER','product/list.html?season=26%20WINTER'],['ALL SEASON','product/list.html?season=ALL']
+    ]},
+    {label:'MATERIAL', action:'gnb-material', children:[
+      ['COTTON','product/list.html?material=COTTON'],['NYLON','product/list.html?material=NYLON'],['KNIT','product/list.html?material=KNIT'],['DENIM','product/list.html?material=DENIM'],['MESH','product/list.html?material=MESH']
+    ]},
+    {label:'CLOTHING', route:'product/list.html?category=CLOTHING', action:'gnb-clothing'},
+    {label:'EXCLUSIVE', route:'product/list.html?badge=EXCLUSIVE', action:'gnb-exclusive'},
+    {label:'ACC', route:'product/list.html?category=ACC', action:'gnb-acc'},
+    {label:'CELEBRITY', route:'content/celebrity.html', action:'gnb-celebrity'},
+    {label:'LOOKBOOK', route:'content/lookbook.html', action:'gnb-lookbook'},
+    {label:'COMMUNITY', action:'gnb-community', children:[
+      ['NOTICE','community/list.html?board=notice'],['EVENT','community/list.html?board=event'],['Q&A','community/list.html?board=qna'],['REVIEW','community/list.html?board=review'],['SUPPORTERS','community/list.html?board=supporters'],['NEWS','community/list.html?board=news']
+    ]}
+  ];
+
+  function desktopNavHtml() {
+    return menuGroups.map(group => {
+      if (!group.children) return `<a class="nav-link" data-action="${group.action}" data-nav-label="${group.label}" data-route="${group.route}">${group.label}</a>`;
+      const children = group.children.map(([label, route], index) => `<a data-action="gnb-submenu-click" data-parent-menu="${group.label}" data-menu-label="${label}" data-menu-index="${index+1}" data-route="${route}">${label}</a>`).join('');
+      return `<div class="nav-item has-menu"><button type="button" class="nav-link" data-action="${group.action}" data-nav-label="${group.label}" aria-expanded="false">${group.label}</button><div class="mega-menu" data-component="gnb-dropdown" data-menu-name="${group.label}"><div class="mega-menu-inner"><div class="mega-intro"><span>COLLECTION</span><strong>${group.label}</strong><p>메뉴 열기·하위 카테고리 클릭·이탈 행동을 GTM으로 구분해보세요.</p></div><div class="mega-links">${children}</div></div></div></div>`;
+    }).join('');
+  }
+
+  function mobileNavHtml() {
+    return menuGroups.map(group => {
+      if (!group.children) return `<a class="drawer-link" data-action="mobile-menu-click" data-menu-label="${group.label}" data-route="${group.route}">${group.label}</a>`;
+      const children = group.children.map(([label, route], index) => `<a data-action="mobile-submenu-click" data-parent-menu="${group.label}" data-menu-label="${label}" data-menu-index="${index+1}" data-route="${route}">${label}</a>`).join('');
+      return `<details class="drawer-group"><summary data-action="mobile-menu-expand" data-menu-label="${group.label}">${group.label}<span>+</span></summary><div class="drawer-submenu">${children}</div></details>`;
+    }).join('');
+  }
+
+  function renderHeader() {
+    const host = $('[data-site-header]');
+    if (!host) return;
+    const profile = read(STORE.profile, null);
+    host.innerHTML = `
+      <div class="announcement-bar" data-component="announcement-bar">
+        <div class="announcement-track">
+          <a data-action="announcement-click" data-announcement-id="join-benefit" data-route="member/agreement.html">신규 가입 10% 쿠폰 · 무료배송 혜택</a>
+          <a data-action="announcement-click" data-announcement-id="summer-drop" data-route="product/list.html?season=26%20SUMMER">26 SUMMER DROP NOW OPEN</a>
+        </div>
+      </div>
+      <div class="utility-bar">
+        <div class="utility-inner">
+          <div class="utility-left"><span>고객센터 070-0000-0000</span><span>평일 10:00–17:00</span></div>
+          <nav aria-label="유틸리티 메뉴">
+            ${profile ? `<button type="button" data-action="logout-click">로그아웃</button>` : `<a data-action="utility-login-click" data-route="member/login.html">로그인</a>`}
+            <a data-action="utility-join-click" data-route="member/agreement.html">회원가입</a>
+            <a data-action="utility-order-click" data-route="myshop/order/list.html">주문조회</a>
+            <a data-action="utility-mypage-click" data-route="myshop/order/list.html">마이페이지</a>
+          </nav>
+        </div>
+      </div>
+      <header class="site-header">
+        <div class="header-main">
+          <button class="round-icon menu-toggle" type="button" data-action="mobile-menu-open" aria-label="전체 메뉴 열기"><span></span><span></span><span></span></button>
+          <a class="brand" data-action="logo-click" data-route="index.html" aria-label="NOVERA 홈">NOVERA</a>
+          <div class="header-tools">
+            <button class="tool-btn" type="button" data-action="search-open" aria-label="검색 열기"><span>SEARCH</span><i class="icon-search"></i></button>
+            <a class="tool-btn" data-action="header-account-click" data-route="${profile ? 'myshop/order/list.html' : 'member/login.html'}"><span>${profile ? 'MY' : 'LOGIN'}</span><i class="icon-user"></i></a>
+            <a class="tool-btn" data-action="header-cart-click" data-route="order/basket.html"><span>CART</span><i class="icon-bag"></i><b data-cart-count>0</b></a>
+          </div>
+        </div>
+        <nav class="desktop-nav" aria-label="주요 쇼핑 메뉴">${desktopNavHtml()}</nav>
+      </header>
+      <aside class="mobile-drawer" aria-hidden="true" data-component="mobile-drawer">
+        <div class="drawer-head"><strong>NOVERA MENU</strong><button type="button" data-action="mobile-menu-close" aria-label="메뉴 닫기">×</button></div>
+        <div class="drawer-utility">
+          <a data-action="mobile-utility-login" data-route="member/login.html">LOGIN</a>
+          <a data-action="mobile-utility-join" data-route="member/agreement.html">JOIN</a>
+          <a data-action="mobile-utility-order" data-route="myshop/order/list.html">ORDER</a>
+          <a data-action="mobile-utility-cart" data-route="order/basket.html">CART <span data-cart-count>0</span></a>
+        </div>
+        <nav class="drawer-nav">${mobileNavHtml()}</nav>
+      </aside>
+      <div class="drawer-backdrop" data-action="mobile-menu-backdrop"></div>
+      <section class="search-overlay" aria-hidden="true" data-component="search-overlay" data-search-placement="header">
+        <div class="search-panel">
+          <div class="search-head"><span>SEARCH</span><button type="button" data-action="search-close" aria-label="검색 닫기">×</button></div>
+          <form id="globalSearchForm" data-action="search-form-submit">
+            <label for="globalKeyword">무엇을 찾고 있나요?</label>
+            <div class="search-input-row"><input id="globalKeyword" name="keyword" type="search" placeholder="상품명 또는 카테고리 입력" autocomplete="off"><button type="submit" data-action="search-submit">검색</button></div>
+          </form>
+          <div class="quick-keywords"><strong>인기 검색어</strong><div>
+            ${['볼캡','버킷햇','비니','여름모자','보닛햇','필박스 캡'].map((word, index) => `<button type="button" data-action="quick-keyword-click" data-keyword="${word}" data-keyword-rank="${index+1}">${index+1}. ${word}</button>`).join('')}
+          </div></div>
+        </div>
+      </section>`;
+
+    bindRoutes(host);
+    updateCartCount();
+
+    const drawer = $('.mobile-drawer');
+    const backdrop = $('.drawer-backdrop');
+    const openDrawer = () => { drawer.classList.add('open'); backdrop.classList.add('show'); drawer.setAttribute('aria-hidden','false'); document.body.classList.add('locked'); };
+    const closeDrawer = () => { drawer.classList.remove('open'); backdrop.classList.remove('show'); drawer.setAttribute('aria-hidden','true'); document.body.classList.remove('locked'); };
+    $('[data-action="mobile-menu-open"]')?.addEventListener('click', openDrawer);
+    $('[data-action="mobile-menu-close"]')?.addEventListener('click', closeDrawer);
+    $('[data-action="mobile-menu-backdrop"]')?.addEventListener('click', closeDrawer);
+
+    const overlay = $('.search-overlay');
+    const openSearch = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.classList.add('locked'); setTimeout(() => $('#globalKeyword')?.focus(), 100); };
+    const closeSearch = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.classList.remove('locked'); };
+    $('[data-action="search-open"]')?.addEventListener('click', openSearch);
+    $('[data-action="search-close"]')?.addEventListener('click', closeSearch);
+    overlay?.addEventListener('click', event => { if (event.target === overlay) closeSearch(); });
+    $('#globalSearchForm')?.addEventListener('submit', event => {
+      event.preventDefault();
+      const keyword = $('#globalKeyword').value.trim();
+      if (keyword) go(`product/search.html?keyword=${encodeURIComponent(keyword)}`);
+    });
+    $$('[data-action="quick-keyword-click"]').forEach(btn => btn.addEventListener('click', () => go(`product/search.html?keyword=${encodeURIComponent(btn.dataset.keyword)}`)));
+    $('[data-action="logout-click"]')?.addEventListener('click', () => { write(STORE.profile, null); location.reload(); });
+  }
+
+  function renderFooter() {
+    const host = $('[data-site-footer]');
+    if (!host) return;
+    host.innerHTML = `
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <section><a class="footer-brand" data-action="footer-logo-click" data-route="index.html">NOVERA</a><p>추적 코드는 비워둔 커머스 측정 실습몰입니다. 실제 결제와 외부 인증은 발생하지 않습니다.</p><button type="button" class="text-button" data-action="newsletter-popup-open">뉴스레터 신청하기 →</button></section>
+          <section><h3>SHOP</h3><a data-action="footer-menu-click" data-menu-label="BEST" data-route="product/list.html?collection=best">BEST</a><a data-action="footer-menu-click" data-menu-label="NEW" data-route="product/list.html?collection=new">NEW</a><a data-action="footer-menu-click" data-menu-label="BALL CAP" data-route="product/list.html?category=BALL%20CAP">BALL CAP</a><a data-action="footer-menu-click" data-menu-label="ACC" data-route="product/list.html?category=ACC">ACC</a></section>
+          <section><h3>COMMUNITY</h3><a data-action="footer-menu-click" data-menu-label="NOTICE" data-route="community/list.html?board=notice">NOTICE</a><a data-action="footer-menu-click" data-menu-label="EVENT" data-route="community/list.html?board=event">EVENT</a><a data-action="footer-menu-click" data-menu-label="REVIEW" data-route="community/list.html?board=review">REVIEW</a><a data-action="footer-menu-click" data-menu-label="Q&A" data-route="community/list.html?board=qna">Q&A</a></section>
+          <section><h3>LAB IDENTITY</h3><dl class="identity-list"><div><dt>anonymous_id</dt><dd data-identity-anonymous></dd></div><div><dt>login_status</dt><dd data-identity-login></dd></div><div><dt>user_id</dt><dd data-identity-user></dd></div><div><dt>member_grade</dt><dd data-identity-grade></dd></div></dl></section>
+        </div>
+        <div class="footer-bottom"><span>© 2026 NOVERA COMMERCE LAB</span><span>GTM · GA4 · GOOGLE ADS · NAVER WCS PRACTICE</span></div>
+      </footer>`;
+    bindRoutes(host);
+    $('[data-action="newsletter-popup-open"]')?.addEventListener('click', openNewsletterPopup);
+  }
+
+  function productVisual(p, size = 'card') {
+    return `<div class="product-visual ${size}" style="--tone1:${p.tone1};--tone2:${p.tone2}" aria-label="${esc(p.nameKo)} 이미지 대체 그래픽"><span>${p.category}</span><b>${p.id}</b></div>`;
+  }
+
+  function productCard(p, listId, listName, index) {
+    const attrs = itemData(p, {itemListId:listId,itemListName:listName,index});
+    return `<article class="product-card" data-component="product-card" ${dataset(attrs)}>
+      <a class="product-link" data-action="select-item" ${dataset(attrs)} data-route="product/detail.html?product_no=${p.id}&list_id=${encodeURIComponent(listId)}&index=${index}">${productVisual(p)}</a>
+      <div class="product-meta"><span>${p.category}</span><span class="badge">${p.badge}</span></div>
+      <a class="product-title" data-action="select-item-title" ${dataset(attrs)} data-route="product/detail.html?product_no=${p.id}&list_id=${encodeURIComponent(listId)}&index=${index}">${esc(p.nameKo)}</a>
+      <div class="price-line"><strong>${won(p.price)}</strong><s>${won(p.originalPrice)}</s><em>${Math.round((1-p.price/p.originalPrice)*100)}%</em></div>
+      <div class="product-actions"><button type="button" data-action="wishlist-toggle" ${dataset(attrs)} aria-pressed="false">♡</button><button type="button" data-action="quick-add-to-cart" ${dataset(attrs)}>장바구니</button></div>
+    </article>`;
+  }
+
+  function bindProductCards(scope = document) {
+    bindRoutes(scope);
+    $$('[data-action="quick-add-to-cart"]', scope).forEach(btn => btn.addEventListener('click', () => {
+      addCart(btn.dataset.itemId, 1, btn.dataset.itemVariant);
+      showToast(`${btn.dataset.itemName}을 장바구니에 담았습니다.`);
+    }));
+    $$('[data-action="wishlist-toggle"]', scope).forEach(btn => btn.addEventListener('click', () => {
+      const active = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', String(!active));
+      btn.textContent = active ? '♡' : '♥';
+    }));
+  }
+
+  function showToast(message) {
+    let toast = $('#siteToast');
+    if (!toast) { toast = document.createElement('div'); toast.id = 'siteToast'; toast.className = 'site-toast'; document.body.append(toast); }
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(() => toast.classList.remove('show'), 2400);
+  }
+
+  function mainPopupHtml() {
+    const id = identity();
+    return `<div class="modal-backdrop campaign-popup-backdrop" data-component="campaign-popup-backdrop">
+      <section class="campaign-popup" role="dialog" aria-modal="true" aria-labelledby="campaignPopupTitle" data-component="campaign-popup" data-popup-id="main_benefit_popup_2026" data-popup-name="신규회원 혜택 팝업" data-popup-placement="homepage_center" data-login-status="${id.loginStatus}" data-member-grade="${id.memberGrade}">
+        <button class="popup-close-x" type="button" data-action="popup-close" data-popup-id="main_benefit_popup_2026" data-close-type="x" aria-label="팝업 닫기">×</button>
+        <div class="popup-slides">
+          <article class="popup-slide active" data-popup-slide="1" data-creative-id="creative_join_coupon" data-creative-name="가입 쿠폰 10퍼센트">
+            <span class="popup-kicker">WELCOME BENEFIT</span><h2 id="campaignPopupTitle">첫 구매 10% 쿠폰</h2><p>회원가입 후 바로 사용할 수 있는 테스트 쿠폰 혜택입니다.</p><a class="popup-cta" data-action="popup-cta-click" data-popup-id="main_benefit_popup_2026" data-creative-id="creative_join_coupon" data-cta-label="가입 혜택 보기" data-route="member/agreement.html">가입 혜택 보기</a>
+          </article>
+          <article class="popup-slide" data-popup-slide="2" data-creative-id="creative_summer_drop" data-creative-name="여름 컬렉션">
+            <span class="popup-kicker">26 SUMMER DROP</span><h2>가벼운 여름 모자</h2><p>나일론·메시·크로셰 소재를 테마별로 탐색해보세요.</p><a class="popup-cta" data-action="popup-cta-click" data-popup-id="main_benefit_popup_2026" data-creative-id="creative_summer_drop" data-cta-label="컬렉션 보기" data-route="product/list.html?season=26%20SUMMER">컬렉션 보기</a>
+          </article>
+          <article class="popup-slide" data-popup-slide="3" data-creative-id="creative_review_reward" data-creative-name="리뷰 적립 혜택">
+            <span class="popup-kicker">REVIEW REWARD</span><h2>리뷰 작성 적립금</h2><p>텍스트 리뷰와 포토 리뷰 클릭 성과를 각각 구분할 수 있습니다.</p><a class="popup-cta" data-action="popup-cta-click" data-popup-id="main_benefit_popup_2026" data-creative-id="creative_review_reward" data-cta-label="리뷰 게시판 보기" data-route="community/list.html?board=review">리뷰 게시판 보기</a>
+          </article>
+        </div>
+        <div class="popup-controls"><button type="button" data-action="popup-slide-prev" data-popup-id="main_benefit_popup_2026" aria-label="이전 슬라이드">←</button><div class="popup-dots">${[1,2,3].map(i=>`<button type="button" class="${i===1?'active':''}" data-action="popup-slide-dot" data-popup-id="main_benefit_popup_2026" data-slide-index="${i}" aria-label="${i}번 슬라이드"></button>`).join('')}</div><button type="button" data-action="popup-slide-next" data-popup-id="main_benefit_popup_2026" aria-label="다음 슬라이드">→</button></div>
+        <div class="popup-bottom"><button type="button" data-action="popup-close-today" data-popup-id="main_benefit_popup_2026" data-close-type="today">오늘 하루 보지 않기</button><button type="button" data-action="popup-close" data-popup-id="main_benefit_popup_2026" data-close-type="footer">닫기</button></div>
+      </section>
+    </div>`;
+  }
+
+  function openCampaignPopup(source = 'automatic') {
+    if ($('.campaign-popup-backdrop')) return;
+    const wrap = document.createElement('div');
+    wrap.innerHTML = mainPopupHtml();
+    const backdrop = wrap.firstElementChild;
+    backdrop.dataset.openSource = source;
+    document.body.append(backdrop);
+    bindRoutes(backdrop);
+    document.body.classList.add('locked');
+    let active = 1;
+    const show = index => {
+      active = ((index - 1 + 3) % 3) + 1;
+      $$('.popup-slide', backdrop).forEach(slide => slide.classList.toggle('active', number(slide.dataset.popupSlide) === active));
+      $$('.popup-dots button', backdrop).forEach(dot => dot.classList.toggle('active', number(dot.dataset.slideIndex) === active));
+      $('.campaign-popup', backdrop).dataset.activeCreativeId = $(`.popup-slide[data-popup-slide="${active}"]`, backdrop)?.dataset.creativeId || '';
+    };
+    const close = () => { backdrop.remove(); document.body.classList.remove('locked'); };
+    $$('[data-action="popup-close"]', backdrop).forEach(btn => btn.addEventListener('click', close));
+    $('[data-action="popup-close-today"]', backdrop)?.addEventListener('click', () => { write(STORE.popupDay, todayKey()); close(); });
+    $('[data-action="popup-slide-prev"]', backdrop)?.addEventListener('click', () => show(active - 1));
+    $('[data-action="popup-slide-next"]', backdrop)?.addEventListener('click', () => show(active + 1));
+    $$('[data-action="popup-slide-dot"]', backdrop).forEach(btn => btn.addEventListener('click', () => show(number(btn.dataset.slideIndex))));
+    backdrop.addEventListener('click', event => { if (event.target === backdrop) close(); });
+    show(1);
+  }
+
+  function floatingBenefitButton() {
+    if ($('#benefitFloat')) return;
+    const btn = document.createElement('button');
+    btn.id = 'benefitFloat';
+    btn.className = 'benefit-float';
+    btn.type = 'button';
+    btn.dataset.action = 'popup-open-click';
+    btn.dataset.popupId = 'main_benefit_popup_2026';
+    btn.dataset.openSource = 'floating_button';
+    btn.innerHTML = `<span>혜택</span><b>10%</b>`;
+    btn.addEventListener('click', () => openCampaignPopup('floating_button'));
+    document.body.append(btn);
+  }
+
+  function openNewsletterPopup() {
+    if ($('.newsletter-popup-backdrop')) return;
+    const id = identity();
+    const wrap = document.createElement('div');
+    wrap.innerHTML = `<div class="modal-backdrop newsletter-popup-backdrop" data-component="newsletter-popup-backdrop"><section class="newsletter-popup" role="dialog" aria-modal="true" data-component="newsletter-popup" data-popup-id="newsletter_signup_popup" data-popup-name="뉴스레터 구독 팝업" data-login-status="${id.loginStatus}"><button type="button" class="popup-close-x" data-action="newsletter-popup-close" aria-label="닫기">×</button><span class="popup-kicker">NOVERA LETTER</span><h2>새 컬렉션 소식을 받아보세요.</h2><p>실제 이메일은 저장하지 않습니다. 폼 제출·검증·성공 상태 측정 연습용입니다.</p><form id="newsletterForm" data-action="newsletter-form"><label>이메일 형식 테스트<input type="email" name="email" placeholder="practice@example.com" required></label><label class="check-row"><input type="checkbox" name="agree" required><span>마케팅 정보 수신 동의</span></label><button type="submit" data-action="newsletter-submit">구독 신청</button></form><div class="newsletter-success" hidden data-component="newsletter-success"><strong>신청 완료</strong><p>폼 성공 상태가 표시되었습니다.</p></div></section></div>`;
+    const backdrop = wrap.firstElementChild;
+    document.body.append(backdrop);
+    document.body.classList.add('locked');
+    const close = () => { backdrop.remove(); document.body.classList.remove('locked'); };
+    $('[data-action="newsletter-popup-close"]', backdrop)?.addEventListener('click', close);
+    backdrop.addEventListener('click', event => { if (event.target === backdrop) close(); });
+    $('#newsletterForm', backdrop)?.addEventListener('submit', event => {
+      event.preventDefault();
+      event.currentTarget.hidden = true;
+      $('[data-component="newsletter-success"]', backdrop).hidden = false;
+      $('.newsletter-popup', backdrop).dataset.formStatus = 'success';
+    });
+  }
+
+  function consentBanner() {
+    if (read(STORE.consent, null)) return;
+    const banner = document.createElement('section');
+    banner.className = 'consent-banner';
+    banner.dataset.component = 'consent-banner';
+    banner.dataset.consentVersion = 'v1';
+    banner.innerHTML = `<div><strong>쿠키 설정 실습</strong><p>동의 상태 UI만 제공합니다. 광고 태그는 직접 연결하세요.</p></div><div><button type="button" data-action="consent-reject" data-consent-choice="denied">거부</button><button type="button" data-action="consent-settings-open" data-consent-choice="settings">설정</button><button type="button" class="primary" data-action="consent-accept" data-consent-choice="granted">전체 동의</button></div>`;
+    document.body.append(banner);
+    $$('[data-consent-choice]', banner).forEach(btn => btn.addEventListener('click', () => { write(STORE.consent, {choice:btn.dataset.consentChoice, at:new Date().toISOString()}); banner.remove(); }));
+  }
+
+  function renderHome(main) {
+    main.dataset.pageType = 'home';
+    main.innerHTML = `
+      <section class="hero-section" data-component="hero" data-hero-id="home_main_2026summer">
+        <div class="hero-copy"><span class="eyebrow">26 SUMMER COLLECTION</span><h1>Form follows<br>your rhythm.</h1><p>상품·카테고리·팝업·검색·회원 상태를 직접 태깅할 수 있는 커머스 실습 환경입니다.</p><div class="hero-actions"><a class="btn dark" data-action="hero-cta-click" data-hero-id="home_main_2026summer" data-cta-label="신상품 보기" data-route="product/list.html?collection=new">신상품 보기</a><a class="btn light" data-action="hero-cta-click" data-hero-id="home_main_2026summer" data-cta-label="베스트 보기" data-route="product/list.html?collection=best">베스트 보기</a></div></div>
+        <div class="hero-visual"><div class="abstract-hat"></div><span>NO IMAGE / CSS OBJECT</span></div>
+      </section>
+      <section class="shortcut-section"><div class="section-title"><span>QUICK ACCESS</span><h2>쇼핑 메뉴</h2></div><div class="shortcut-grid">
+        ${[
+          ['베스트','BEST','product/list.html?collection=best','shortcut_best'],['신제품','NEW','product/list.html?collection=new','shortcut_new'],['스타일','STYLE','product/list.html?category=BALL%20CAP','shortcut_style'],['시즌','SEASON','product/list.html?season=26%20SUMMER','shortcut_season'],['소재','MATERIAL','product/list.html?material=NYLON','shortcut_material'],['의류','CLOTHING','product/list.html?category=CLOTHING','shortcut_clothing'],['익스클루시브','EXCLUSIVE','product/list.html?badge=EXCLUSIVE','shortcut_exclusive'],['ACC','ACCESSORY','product/list.html?category=ACC','shortcut_acc'],['셀럽','CELEBRITY','content/celebrity.html','shortcut_celebrity'],['룩북','LOOKBOOK','content/lookbook.html','shortcut_lookbook'],['이벤트','EVENT','community/list.html?board=event','shortcut_event'],['리뷰','REVIEW','community/list.html?board=review','shortcut_review']
+        ].map(([ko,en,route,id],i)=>`<a class="shortcut-card" data-action="shortcut-menu-click" data-shortcut-id="${id}" data-shortcut-index="${i+1}" data-shortcut-label="${ko}" data-route="${route}"><span>${String(i+1).padStart(2,'0')}</span><strong>${ko}</strong><em>${en}</em></a>`).join('')}
+      </div></section>
+      <section class="home-section"><div class="section-heading"><div><span>FEATURED</span><h2>추천 상품</h2></div><a data-action="section-more-click" data-section-id="featured_products" data-route="product/list.html?collection=best">전체 보기 →</a></div><div class="product-grid">${PRODUCTS.slice(0,8).map((p,i)=>productCard(p,'home_featured','홈 추천 상품',i+1)).join('')}</div></section>
+      <section class="campaign-strip" data-component="campaign-banner" data-banner-id="summer_editorial"><div><span>EDITORIAL</span><h2>Summer objects,<br>quiet statements.</h2><p>배너 노출과 CTA 클릭을 별도 이벤트로 설계할 수 있습니다.</p></div><a class="btn white" data-action="campaign-banner-click" data-banner-id="summer_editorial" data-creative-id="editorial_summer_01" data-route="content/lookbook.html">룩북 보기</a></section>
+      <section class="benefit-grid">
+        <a data-action="benefit-card-click" data-benefit-id="app_install" data-route="community/list.html?board=event"><span>APP</span><strong>앱 설치 혜택</strong><p>가상 설치 전환 실습</p></a>
+        <a data-action="benefit-card-click" data-benefit-id="join_benefit" data-route="member/agreement.html"><span>JOIN</span><strong>가입 혜택</strong><p>회원 상태별 전환 실습</p></a>
+        <a data-action="benefit-card-click" data-benefit-id="review_reward" data-route="community/list.html?board=review"><span>REVIEW</span><strong>리뷰 적립금</strong><p>게시판 유입 경로 실습</p></a>
+        <button type="button" data-action="benefit-card-popup-click" data-benefit-id="coupon_popup" onclick="window.NoveraLab.openCampaignPopup('benefit_card')"><span>COUPON</span><strong>쿠폰 팝업</strong><p>열기·닫기·CTA 측정</p></button>
+      </section>`;
+    bindProductCards(main);
+    bindRoutes(main);
+  }
+
+  function filterProducts() {
+    let rows = [...PRODUCTS];
+    const collection = query('collection');
+    const category = query('category');
+    const season = query('season');
+    const material = query('material');
+    const badge = query('badge');
+    if (collection === 'best') rows = rows.filter(p => p.badge === 'BEST');
+    if (collection === 'new') rows = rows.filter(p => p.badge === 'NEW');
+    if (category) rows = rows.filter(p => p.category === category);
+    if (season) rows = rows.filter(p => p.season === season);
+    if (material) rows = rows.filter(p => p.material === material);
+    if (badge) rows = rows.filter(p => p.badge === badge);
+    return rows;
+  }
+
+  function listTitle() {
+    return query('collection')?.toUpperCase() || query('category') || query('season') || query('material') || query('badge') || 'ALL PRODUCTS';
+  }
+
+  function renderList(main) {
+    const rows = filterProducts();
+    const title = listTitle();
+    main.dataset.pageType = 'product_list';
+    main.dataset.itemListId = `list_${title.toLowerCase().replace(/\s+/g,'_')}`;
+    main.dataset.itemListName = title;
+    main.innerHTML = `<section class="page-hero"><span>SHOP / ${esc(title)}</span><h1>${esc(title)}</h1><p>${rows.length}개의 상품이 있습니다.</p></section><section class="list-toolbar"><div class="category-tabs">${['ALL PRODUCTS','BALL CAP','BUCKET HAT','BEANIE','BONNET HAT','PILLBOX CAP','CLOTHING','ACC'].map(label=>`<a data-action="category-tab-click" data-category-label="${label}" data-route="${label==='ALL PRODUCTS'?'product/list.html':`product/list.html?category=${encodeURIComponent(label)}`}">${label}</a>`).join('')}</div><label>정렬<select id="sortSelect" data-action="product-sort-change"><option value="default">추천순</option><option value="price_asc">낮은 가격순</option><option value="price_desc">높은 가격순</option><option value="name">상품명순</option></select></label></section><div id="productListGrid" class="product-grid">${rows.map((p,i)=>productCard(p,main.dataset.itemListId,title,i+1)).join('')}</div>`;
+    const renderSorted = sorted => { $('#productListGrid').innerHTML = sorted.map((p,i)=>productCard(p,main.dataset.itemListId,title,i+1)).join(''); bindProductCards($('#productListGrid')); };
+    $('#sortSelect')?.addEventListener('change', event => {
+      const sorted = [...rows];
+      if (event.target.value === 'price_asc') sorted.sort((a,b)=>a.price-b.price);
+      if (event.target.value === 'price_desc') sorted.sort((a,b)=>b.price-a.price);
+      if (event.target.value === 'name') sorted.sort((a,b)=>a.nameKo.localeCompare(b.nameKo,'ko'));
+      renderSorted(sorted);
+    });
+    bindProductCards(main); bindRoutes(main);
+  }
+
+  function renderDetail(main) {
+    const p = product(query('product_no','N1001'));
+    const sourceList = query('list_id','direct');
+    main.dataset.pageType = 'product_detail';
+    Object.entries(itemData(p,{itemListId:sourceList})).forEach(([k,v])=>main.dataset[k]=String(v));
+    main.innerHTML = `<nav class="breadcrumb"><a data-route="index.html">HOME</a><span>/</span><a data-route="product/list.html?category=${encodeURIComponent(p.category)}">${p.category}</a><span>/</span><strong>${p.id}</strong></nav><section class="detail-layout"><div>${productVisual(p,'detail')}<div class="detail-thumbs">${[1,2,3,4].map(i=>`<button type="button" data-action="product-thumbnail-click" data-item-id="${p.id}" data-thumbnail-index="${i}">${i}</button>`).join('')}</div></div><div class="detail-info"><span class="eyebrow">${p.badge} · ${p.season}</span><h1>${esc(p.nameKo)}</h1><p class="en-name">${esc(p.name)}</p><div class="detail-price"><strong>${won(p.price)}</strong><s>${won(p.originalPrice)}</s><em>${Math.round((1-p.price/p.originalPrice)*100)}%</em></div><dl class="detail-spec"><div><dt>상품번호</dt><dd>${p.id}</dd></div><div><dt>카테고리</dt><dd>${p.category} / ${p.category2}</dd></div><div><dt>소재</dt><dd>${p.material}</dd></div><div><dt>배송</dt><dd>50,000원 이상 무료</dd></div></dl><label class="select-field">옵션<select id="variantSelect" data-action="product-option-change" ${dataset(itemData(p))}><option value="${esc(p.variant)}">${esc(p.variant)}</option><option value="${esc(p.variant)} / Gift Pack">${esc(p.variant)} / Gift Pack</option></select></label><div class="quantity-row"><span>수량</span><div class="quantity-control"><button type="button" data-action="product-quantity-decrease" ${dataset(itemData(p))}>−</button><input id="detailQuantity" type="number" min="1" max="9" value="1" data-action="product-quantity-input"><button type="button" data-action="product-quantity-increase" ${dataset(itemData(p))}>+</button></div></div><div class="detail-actions"><button type="button" class="btn outline" data-action="add-to-cart" ${dataset(itemData(p))}>장바구니</button><button type="button" class="btn dark" data-action="buy-now" ${dataset(itemData(p))}>구매하기</button></div><div class="detail-secondary"><button type="button" data-action="wishlist-toggle" ${dataset(itemData(p))}>♡ 관심상품</button><button type="button" data-action="share-click" data-share-channel="copy_link" ${dataset(itemData(p))}>공유하기</button></div></div></section><section class="detail-tabs"><button type="button" data-action="detail-tab-click" data-tab-name="detail">상품상세</button><button type="button" data-action="detail-tab-click" data-tab-name="review">리뷰 28</button><button type="button" data-action="detail-tab-click" data-tab-name="qna">Q&A 5</button><button type="button" data-action="detail-tab-click" data-tab-name="delivery">배송/교환</button></section><section class="product-description"><span>DESIGN NOTE</span><h2>일상적인 실루엣을 조금 다르게.</h2><p>이 영역은 스크롤 깊이, 탭 클릭, 리뷰 이동 등의 GTM 실습에 사용할 수 있습니다.</p></section>`;
+    bindRoutes(main);
+    const qty = $('#detailQuantity');
+    $('[data-action="product-quantity-decrease"]')?.addEventListener('click',()=>qty.value=Math.max(1,number(qty.value)-1));
+    $('[data-action="product-quantity-increase"]')?.addEventListener('click',()=>qty.value=Math.min(9,number(qty.value)+1));
+    $('[data-action="add-to-cart"]')?.addEventListener('click',()=>{ addCart(p.id,qty.value,$('#variantSelect').value); showToast('장바구니에 담았습니다.'); });
+    $('[data-action="buy-now"]')?.addEventListener('click',()=>{ swrite('novera_checkout_selection',[{itemId:p.id,quantity:number(qty.value),variant:$('#variantSelect').value}]); go(`member/login.html?noMember=1&returnUrl=${encodeURIComponent('order/orderform.html?basket_type=direct')}`); });
+    $('[data-action="share-click"]')?.addEventListener('click',()=>showToast('연습용 링크가 복사된 것으로 처리했습니다.'));
+  }
+
+  function renderSearch(main) {
+    const keyword = query('keyword','');
+    const normalized = keyword.toLowerCase();
+    const rows = keyword ? PRODUCTS.filter(p => `${p.name} ${p.nameKo} ${p.category} ${p.material}`.toLowerCase().includes(normalized) || (keyword==='볼캡' && p.category==='BALL CAP') || (keyword==='버킷햇' && p.category==='BUCKET HAT') || (keyword==='비니' && p.category==='BEANIE') || (keyword==='여름모자' && p.season==='26 SUMMER') || (keyword==='보닛햇' && p.category==='BONNET HAT') || (keyword==='필박스 캡' && p.category==='PILLBOX CAP')) : [];
+    main.dataset.pageType = 'search_results'; main.dataset.searchTerm = keyword;
+    main.innerHTML = `<section class="page-hero search-page"><span>SEARCH RESULT</span><h1>“${esc(keyword || '검색어 없음')}”</h1><p>${rows.length}개의 검색 결과</p><form class="inline-search" data-action="search-page-form"><input name="keyword" value="${esc(keyword)}" placeholder="검색어 입력"><button type="submit" data-action="search-page-submit">검색</button></form></section><div class="product-grid">${rows.map((p,i)=>productCard(p,'search_results',`검색: ${keyword}`,i+1)).join('') || '<div class="empty-state"><strong>검색 결과가 없습니다.</strong><a data-route="product/list.html">전체 상품 보기</a></div>'}</div>`;
+    $('form.inline-search')?.addEventListener('submit', event => { event.preventDefault(); const value = event.currentTarget.keyword.value.trim(); if(value) go(`product/search.html?keyword=${encodeURIComponent(value)}`); });
+    bindProductCards(main); bindRoutes(main);
+  }
+
+  function renderBasket(main) {
+    main.dataset.pageType = 'cart';
+    const rows = cart();
+    const summary = totals(rows);
+    main.innerHTML = `<section class="page-hero compact"><span>SHOPPING BAG</span><h1>장바구니</h1><p>${cartCount()}개의 상품</p></section>${rows.length ? `<section class="cart-layout"><div class="cart-list"><div class="cart-head"><label><input id="selectAllCart" type="checkbox" checked data-action="cart-select-all"> 전체선택</label><button type="button" data-action="cart-selected-remove">선택삭제</button></div>${summary.lines.map((row,index)=>`<article class="cart-line" data-component="cart-line" ${dataset(itemData(row.item,{quantity:row.quantity,index:index+1,cartPosition:index+1}))}><input class="cart-check" type="checkbox" checked data-action="cart-item-select" data-item-id="${row.itemId}">${productVisual(row.item,'mini')}<div class="cart-copy"><a data-action="cart-product-click" data-route="product/detail.html?product_no=${row.itemId}">${esc(row.item.nameKo)}</a><span>${esc(row.variant)}</span><strong>${won(row.item.price)}</strong></div><div class="quantity-control"><button type="button" data-action="cart-quantity-decrease" ${dataset(itemData(row.item,{quantity:row.quantity}))}>−</button><input value="${row.quantity}" readonly><button type="button" data-action="cart-quantity-increase" ${dataset(itemData(row.item,{quantity:row.quantity}))}>+</button></div><button class="line-remove" type="button" data-action="remove-from-cart" ${dataset(itemData(row.item,{quantity:row.quantity}))}>삭제</button></article>`).join('')}</div><aside class="order-summary"><h2>ORDER SUMMARY</h2><dl><div><dt>상품금액</dt><dd>${won(summary.subtotal)}</dd></div><div><dt>배송비</dt><dd>${won(summary.shipping)}</dd></div><div class="total"><dt>총 결제예정금액</dt><dd>${won(summary.total)}</dd></div></dl><button class="btn dark full" type="button" data-action="begin-checkout-cart">전체상품 주문</button><button class="btn outline full" type="button" data-action="begin-checkout-selected">선택상품 주문</button><a data-action="continue-shopping-click" data-route="product/list.html">쇼핑 계속하기</a></aside></section>` : `<div class="empty-state"><strong>장바구니가 비어 있습니다.</strong><a class="btn dark" data-route="product/list.html">상품 보러가기</a></div>`}`;
+    bindRoutes(main);
+    const mutate = (itemId, delta) => { const list=cart(); const row=list.find(x=>x.itemId===itemId); if(row){row.quantity=Math.max(1,row.quantity+delta);saveCart(list);renderBasket(main);} };
+    $$('[data-action="cart-quantity-increase"]').forEach(btn=>btn.addEventListener('click',()=>mutate(btn.dataset.itemId,1)));
+    $$('[data-action="cart-quantity-decrease"]').forEach(btn=>btn.addEventListener('click',()=>mutate(btn.dataset.itemId,-1)));
+    $$('[data-action="remove-from-cart"]').forEach(btn=>btn.addEventListener('click',()=>{saveCart(cart().filter(x=>x.itemId!==btn.dataset.itemId));renderBasket(main);}));
+    $('#selectAllCart')?.addEventListener('change',event=>$$('.cart-check').forEach(cb=>cb.checked=event.target.checked));
+    $('[data-action="cart-selected-remove"]')?.addEventListener('click',()=>{const selected=$$('.cart-check:checked').map(x=>x.dataset.itemId);saveCart(cart().filter(x=>!selected.includes(x.itemId)));renderBasket(main);});
+    const checkout = selectedOnly => {
+      const selectedIds = selectedOnly ? $$('.cart-check:checked').map(x=>x.dataset.itemId) : cart().map(x=>x.itemId);
+      const selectedRows = cart().filter(x=>selectedIds.includes(x.itemId));
+      if(!selectedRows.length){showToast('주문할 상품을 선택하세요.');return;}
+      swrite('novera_checkout_selection', selectedRows);
+      go(`member/login.html?noMember=1&returnUrl=${encodeURIComponent('order/orderform.html?basket_type='+(selectedOnly?'selected':'all'))}`);
+    };
+    $('[data-action="begin-checkout-cart"]')?.addEventListener('click',()=>checkout(false));
+    $('[data-action="begin-checkout-selected"]')?.addEventListener('click',()=>checkout(true));
+  }
+
+  function renderLogin(main) {
+    main.dataset.pageType = 'login';
+    const returnUrl = query('returnUrl','myshop/order/list.html');
+    const guestVisible = query('noMember') === '1';
+    main.innerHTML = `<section class="auth-shell"><div class="auth-main"><span class="eyebrow">MEMBER LOGIN</span><h1>로그인</h1><p>데모 계정으로 회원 상태와 user_id 구분을 연습할 수 있습니다.</p><form id="loginForm" data-action="login-form"><label>아이디<input name="username" value="demo_member" required></label><label>비밀번호<input name="password" type="password" value="1234" required></label><button class="btn dark full" type="submit" data-action="login-submit">로그인</button></form>${guestVisible?`<div class="guest-purchase"><span>비회원으로 주문하시겠어요?</span><button type="button" class="btn outline full" data-action="guest-checkout-click" data-return-url="${esc(returnUrl)}">비회원 구매</button></div>`:''}<div class="auth-links"><a data-action="find-id-click">아이디 찾기</a><a data-action="find-password-click">비밀번호 찾기</a><a data-action="login-join-click" data-route="member/agreement.html">회원가입</a></div></div><aside class="social-login"><h2>간편 로그인</h2><p>외부 인증 대신 시뮬레이터 화면으로 이동합니다.</p>${[['kakao','카카오 로그인'],['naver','네이버 로그인'],['google','구글 로그인'],['apple','Apple 로그인']].map(([provider,label])=>`<button type="button" class="social-btn ${provider}" data-action="social-login-click" data-auth-type="login" data-auth-provider="${provider}" data-route="member/oauth.html?provider=${provider}&type=login">${label}<span>→</span></button>`).join('')}</aside></section>`;
+    bindRoutes(main);
+    $('#loginForm')?.addEventListener('submit',event=>{event.preventDefault();write(STORE.profile,{memberId:'M000123',grade:'GOLD',name:'DEMO MEMBER',loginAt:new Date().toISOString()});applyIdentity();go(returnUrl);});
+    $('[data-action="guest-checkout-click"]')?.addEventListener('click',()=>go(returnUrl));
+  }
+
+  function renderAgreement(main) {
+    main.dataset.pageType = 'signup';
+    main.innerHTML = `<section class="auth-shell"><div class="auth-main"><span class="eyebrow">JOIN NOVERA</span><h1>회원가입</h1><p>일반 가입과 간편가입 시작 클릭을 각각 구분할 수 있습니다.</p><div class="agreement-box"><label><input type="checkbox" data-action="signup-agreement-all"> 전체 약관 동의</label><label><input type="checkbox" data-action="signup-agreement-item" data-agreement-type="terms"> [필수] 이용약관</label><label><input type="checkbox" data-action="signup-agreement-item" data-agreement-type="privacy"> [필수] 개인정보처리방침</label><label><input type="checkbox" data-action="signup-agreement-item" data-agreement-type="marketing"> [선택] 마케팅 수신</label></div><button type="button" class="btn dark full" data-action="normal-signup-click">일반 회원가입</button></div><aside class="social-login"><h2>1초 간편가입</h2><p>제공자별 클릭과 가입 시작을 연습할 수 있습니다.</p>${[['kakao','카카오 1초 가입'],['naver','네이버 간편가입'],['google','구글 간편가입'],['apple','Apple 간편가입']].map(([provider,label])=>`<button type="button" class="social-btn ${provider}" data-action="social-signup-click" data-auth-type="signup" data-auth-provider="${provider}" data-route="member/oauth.html?provider=${provider}&type=signup">${label}<span>→</span></button>`).join('')}</aside></section>`;
+    bindRoutes(main);
+    $('[data-action="signup-agreement-all"]')?.addEventListener('change',event=>$$('[data-action="signup-agreement-item"]').forEach(cb=>cb.checked=event.target.checked));
+    $('[data-action="normal-signup-click"]')?.addEventListener('click',()=>{write(STORE.profile,{memberId:'M'+Math.floor(100000+Math.random()*899999),grade:'WELCOME',name:'NEW MEMBER',loginAt:new Date().toISOString()});applyIdentity();showToast('연습용 회원가입이 완료되었습니다.');setTimeout(()=>go('index.html'),600);});
+  }
+
+  function renderOauth(main) {
+    const provider = query('provider','kakao'); const type=query('type','login');
+    main.dataset.pageType='oauth_simulator'; main.dataset.authProvider=provider; main.dataset.authType=type;
+    main.innerHTML=`<section class="oauth-card"><div class="oauth-symbol ${provider}">${provider.slice(0,1).toUpperCase()}</div><span>OAUTH SIMULATOR</span><h1>${provider.toUpperCase()} ${type==='signup'?'회원가입':'로그인'}</h1><p>실제 외부 인증은 연결하지 않았습니다. 제공자·인증 유형·완료·취소 클릭을 측정할 수 있습니다.</p><dl><div><dt>provider</dt><dd>${provider}</dd></div><div><dt>auth_type</dt><dd>${type}</dd></div><div><dt>return_page</dt><dd>index.html</dd></div></dl><button class="btn dark full" type="button" data-action="oauth-complete" data-auth-provider="${provider}" data-auth-type="${type}">인증 완료 시뮬레이션</button><button class="btn outline full" type="button" data-action="oauth-cancel" data-auth-provider="${provider}" data-auth-type="${type}">취소하고 돌아가기</button></section>`;
+    $('[data-action="oauth-complete"]')?.addEventListener('click',()=>{write(STORE.profile,{memberId:'M'+Math.floor(100000+Math.random()*899999),grade:type==='signup'?'WELCOME':'SILVER',name:`${provider.toUpperCase()} USER`,loginAt:new Date().toISOString()});applyIdentity();go('index.html');});
+    $('[data-action="oauth-cancel"]')?.addEventListener('click',()=>history.back());
+  }
+
+  function checkoutRows() { const selected=sread('novera_checkout_selection',cart()); return selected.length?selected:cart(); }
+  function renderOrderForm(main) {
+    const rows=checkoutRows(); const summary=totals(rows);
+    main.dataset.pageType='checkout'; main.dataset.checkoutType=query('basket_type','all'); main.dataset.value=summary.total; main.dataset.currency='KRW';
+    main.innerHTML=`<section class="page-hero compact"><span>CHECKOUT</span><h1>주문서</h1><p>결제는 발생하지 않습니다.</p></section><section class="checkout-layout"><div class="checkout-main"><section class="checkout-box"><h2>주문상품</h2>${summary.lines.map((row,index)=>`<article class="checkout-line" data-component="checkout-item" ${dataset(itemData(row.item,{quantity:row.quantity,index:index+1}))}>${productVisual(row.item,'mini')}<div><strong>${esc(row.item.nameKo)}</strong><span>${esc(row.variant)} · ${row.quantity}개</span></div><b>${won(row.item.price*row.quantity)}</b></article>`).join('')}</section><section class="checkout-box"><h2>주문자 정보</h2><div class="form-grid"><label>이름<input value="테스트 주문자" data-field-name="customer_name"></label><label>연락처<input value="010-0000-0000" data-field-name="customer_phone"></label><label class="wide">주소<input value="서울시 테스트구 측정로 100" data-field-name="shipping_address"></label></div></section><section class="checkout-box"><h2>배송 방법</h2><div class="option-cards">${[['parcel','일반 택배','3,000원'],['quick','퀵 배송','8,000원'],['pickup','매장 픽업','무료']].map(([value,label,desc],i)=>`<label><input type="radio" name="shipping" value="${value}" ${i===0?'checked':''} data-action="shipping-method-select" data-shipping-tier="${value}"><span><strong>${label}</strong><small>${desc}</small></span></label>`).join('')}</div></section><section class="checkout-box"><h2>결제 수단</h2><div class="option-cards">${[['card','신용카드'],['naverpay','네이버페이'],['kakaopay','카카오페이'],['bank','무통장입금']].map(([value,label],i)=>`<label><input type="radio" name="payment" value="${value}" ${i===0?'checked':''} data-action="payment-method-select" data-payment-type="${value}"><span><strong>${label}</strong><small>테스트 결제</small></span></label>`).join('')}</div></section></div><aside class="order-summary"><h2>PAYMENT</h2><dl><div><dt>상품금액</dt><dd>${won(summary.subtotal)}</dd></div><div><dt>배송비</dt><dd>${won(summary.shipping)}</dd></div><div class="total"><dt>최종금액</dt><dd>${won(summary.total)}</dd></div></dl><label class="check-row"><input id="purchaseAgree" type="checkbox" data-action="purchase-agreement-check"><span>주문 내용을 확인했습니다.</span></label><button class="btn dark full" type="button" data-action="purchase-test" ${dataset({transactionValue:summary.total,currency:'KRW',checkoutType:main.dataset.checkoutType})}>테스트 주문 완료</button><p class="safe-note">실제 결제·PG 호출은 없습니다.</p></aside></section>`;
+    $('[data-action="purchase-test"]')?.addEventListener('click',()=>{
+      if(!$('#purchaseAgree').checked){showToast('주문 확인에 동의하세요.');return;}
+      const order={transactionId:`T${Date.now()}`,createdAt:new Date().toISOString(),rows,shippingMethod:$('input[name="shipping"]:checked').value,paymentMethod:$('input[name="payment"]:checked').value,...summary};
+      const orders=read(STORE.orders,[]);orders.unshift(order);write(STORE.orders,orders);saveCart([]);swrite('novera_checkout_selection',[]);swrite('novera_last_order',order);go('order/order_result.html');
+    });
+  }
+
+  function renderOrderResult(main) {
+    const order=sread('novera_last_order',read(STORE.orders,[])[0]);
+    main.dataset.pageType='purchase';
+    if(!order){main.innerHTML='<div class="empty-state"><strong>주문 정보가 없습니다.</strong><a data-route="product/list.html">상품 보기</a></div>';bindRoutes(main);return;}
+    main.dataset.transactionId=order.transactionId; main.dataset.value=order.total; main.dataset.currency='KRW'; main.dataset.shipping=order.shipping; main.dataset.paymentMethod=order.paymentMethod;
+    main.innerHTML=`<section class="purchase-complete" data-component="purchase-summary" ${dataset({transactionId:order.transactionId,value:order.total,currency:'KRW',shipping:order.shipping,paymentMethod:order.paymentMethod,shippingMethod:order.shippingMethod})}><span>ORDER COMPLETE</span><h1>테스트 주문이 완료되었습니다.</h1><p>주문번호 <strong>${order.transactionId}</strong></p></section><section class="purchase-detail"><h2>주문 상품</h2>${cartLines(order.rows).map((row,index)=>`<article data-component="purchase-item" ${dataset(itemData(row.item,{quantity:row.quantity,index:index+1}))}>${productVisual(row.item,'mini')}<div><strong>${esc(row.item.nameKo)}</strong><span>${esc(row.variant)} · ${row.quantity}개</span></div><b>${won(row.item.price*row.quantity)}</b></article>`).join('')}<dl><div><dt>상품금액</dt><dd>${won(order.subtotal)}</dd></div><div><dt>배송비</dt><dd>${won(order.shipping)}</dd></div><div><dt>결제수단</dt><dd>${order.paymentMethod}</dd></div><div class="total"><dt>총 결제금액</dt><dd>${won(order.total)}</dd></div></dl><div class="center-actions"><a class="btn dark" data-action="purchase-order-list-click" data-route="myshop/order/list.html">주문내역 보기</a><a class="btn outline" data-action="purchase-continue-click" data-route="product/list.html">쇼핑 계속하기</a></div></section>`;
+    bindRoutes(main);
+  }
+
+  function renderOrders(main) {
+    const orders=read(STORE.orders,[]); const profile=read(STORE.profile,null);
+    main.dataset.pageType='order_history';
+    main.innerHTML=`<section class="account-header"><div><span>MY PAGE</span><h1>${profile?esc(profile.name):'GUEST'}님의 주문내역</h1></div><dl><div><dt>회원상태</dt><dd>${profile?'회원':'비회원'}</dd></div><div><dt>등급</dt><dd>${profile?.grade||'GUEST'}</dd></div><div><dt>주문수</dt><dd>${orders.length}</dd></div></dl></section>${orders.length?`<section class="order-history">${orders.map((order,index)=>`<article data-component="order-history-item" data-transaction-id="${order.transactionId}" data-order-index="${index+1}" data-order-value="${order.total}"><div><span>${new Date(order.createdAt).toLocaleDateString('ko-KR')}</span><strong>${order.transactionId}</strong></div><p>${cartLines(order.rows).map(x=>x.item.nameKo).join(', ')}</p><b>${won(order.total)}</b><button type="button" data-action="order-detail-click" data-transaction-id="${order.transactionId}">상세보기</button></article>`).join('')}</section>`:`<div class="empty-state"><strong>주문 내역이 없습니다.</strong><a class="btn dark" data-route="product/list.html">쇼핑하기</a></div>`}`;
+    bindRoutes(main);
+    $$('[data-action="order-detail-click"]').forEach(btn=>btn.addEventListener('click',()=>showToast(`${btn.dataset.transactionId} 상세보기 클릭`)));
+  }
+
+  const BOARD_DATA={
+    notice:['배송 일정 안내','회원 등급 정책 변경 안내','개인정보 처리방침 개정'],
+    event:['여름 컬렉션 댓글 이벤트','신규 회원 쿠폰 이벤트','리뷰 적립금 이벤트'],
+    qna:['상품 사이즈 문의','재입고 일정 문의','배송지 변경 문의'],
+    review:['컨투어 볼캡 착용 리뷰','버킷햇 여름 코디 리뷰','비니 컬러 비교 리뷰'],
+    supporters:['NOVERA CREW 2기 모집','서포터즈 활동 가이드','월간 베스트 크리에이터'],
+    news:['26 SUMMER COLLECTION 공개','브랜드 팝업 스토어 오픈','새로운 캠페인 소식']
+  };
+  function renderCommunity(main){
+    const board=query('board','notice'); const rows=BOARD_DATA[board]||BOARD_DATA.notice;
+    main.dataset.pageType='community_list';main.dataset.boardType=board;
+    main.innerHTML=`<section class="page-hero"><span>COMMUNITY</span><h1>${board.toUpperCase()}</h1><p>게시판 메뉴·게시글·페이지 이동 클릭을 구분해보세요.</p></section><nav class="board-tabs">${Object.keys(BOARD_DATA).map(key=>`<a class="${key===board?'active':''}" data-action="board-tab-click" data-board-type="${key}" data-route="community/list.html?board=${key}">${key.toUpperCase()}</a>`).join('')}</nav><section class="board-list">${rows.map((title,index)=>`<article data-component="board-row" data-board-type="${board}" data-post-id="${board}_${index+1}" data-post-index="${index+1}"><span>${String(index+1).padStart(2,'0')}</span><button type="button" data-action="board-post-click" data-board-type="${board}" data-post-id="${board}_${index+1}" data-post-title="${esc(title)}">${esc(title)}</button><time>2026.07.${String(index+1).padStart(2,'0')}</time></article>`).join('')}</section><div class="pagination">${[1,2,3].map(i=>`<button type="button" data-action="board-pagination-click" data-board-type="${board}" data-page-number="${i}">${i}</button>`).join('')}</div>`;
+    bindRoutes(main);$$('[data-action="board-post-click"]').forEach(btn=>btn.addEventListener('click',()=>showToast(`${btn.dataset.postTitle} 게시글 클릭`)));
+  }
+
+  function renderLookbook(main){
+    main.dataset.pageType='lookbook';
+    main.innerHTML=`<section class="page-hero"><span>EDITORIAL</span><h1>LOOKBOOK</h1><p>콘텐츠 카드 노출·클릭·스크롤 분석용 페이지입니다.</p></section><section class="editorial-grid">${[['contour','CONTOUR','형태와 빛의 경계'],['breeze','SUNNY BREEZE','가벼운 여름의 질감'],['essence','THE ESSENCE','기본의 새로운 균형'],['afterglow','AFTERGLOW','늦은 오후의 색']].map(([id,title,desc],i)=>`<article data-component="lookbook-card" data-content-id="lookbook_${id}" data-content-index="${i+1}"><div class="editorial-art art-${i+1}"><span>${title}</span></div><span>EDITORIAL ${String(i+1).padStart(2,'0')}</span><h2>${desc}</h2><button type="button" data-action="lookbook-open-click" data-content-id="lookbook_${id}" data-content-title="${title}">VIEW STORY →</button></article>`).join('')}</section>`;
+    $$('[data-action="lookbook-open-click"]').forEach(btn=>btn.addEventListener('click',()=>showToast(`${btn.dataset.contentTitle} 룩북 클릭`)));
+  }
+
+  function renderCelebrity(main){
+    main.dataset.pageType='celebrity';
+    main.innerHTML=`<section class="page-hero"><span>CELEBRITY</span><h1>WORN BY</h1><p>가상의 셀럽 착용 콘텐츠입니다. 인물 식별이나 실제 협찬 정보는 포함하지 않습니다.</p></section><section class="celebrity-grid">${PRODUCTS.slice(0,6).map((p,i)=>`<article data-component="celebrity-card" data-content-id="celebrity_${i+1}" ${dataset(itemData(p,{contentIndex:i+1}))}><div class="portrait-placeholder"><span>STYLE ${i+1}</span></div><h2>Editorial Muse ${String(i+1).padStart(2,'0')}</h2><p>${esc(p.nameKo)}</p><a data-action="celebrity-product-click" ${dataset(itemData(p,{contentId:`celebrity_${i+1}`}))} data-route="product/detail.html?product_no=${p.id}">착용 상품 보기 →</a></article>`).join('')}</section>`;
+    bindRoutes(main);
+  }
+
+  function routePageName(){
+    const path = routeParts().path;
+    const map = {
+      '': 'home',
+      'index.html': 'home',
+      'product/list.html': 'list',
+      'product/detail.html': 'detail',
+      'product/search.html': 'search',
+      'order/basket.html': 'basket',
+      'member/login.html': 'login',
+      'member/agreement.html': 'agreement',
+      'member/oauth.html': 'oauth',
+      'order/orderform.html': 'orderform',
+      'order/order_result.html': 'order_result',
+      'myshop/order/list.html': 'orders',
+      'community/list.html': 'community',
+      'content/lookbook.html': 'lookbook',
+      'content/celebrity.html': 'celebrity'
+    };
+    return map[path] || 'home';
+  }
+
+  function syncRouteState(){
+    const main = $('main[data-page]');
+    const parts = routeParts();
+    if (main) main.dataset.page = routePageName();
+    document.body.dataset.routePath = parts.path;
+    document.body.dataset.routeQuery = parts.search;
+    document.documentElement.dataset.singleFileLab = 'true';
+  }
+
+  function renderPage(){
+    const main=$('main[data-page]'); if(!main) return;
+    const page=main.dataset.page;
+    ({home:renderHome,list:renderList,detail:renderDetail,search:renderSearch,basket:renderBasket,login:renderLogin,agreement:renderAgreement,oauth:renderOauth,orderform:renderOrderForm,order_result:renderOrderResult,orders:renderOrders,community:renderCommunity,lookbook:renderLookbook,celebrity:renderCelebrity}[page]||renderHome)(main);
+  }
+
+  function bindGlobal(){
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'){ $('.search-overlay.open [data-action="search-close"]')?.click(); $('.mobile-drawer.open [data-action="mobile-menu-close"]')?.click(); $('.campaign-popup [data-action="popup-close"]')?.click(); $('.newsletter-popup [data-action="newsletter-popup-close"]')?.click(); }});
+  }
+
+  function init(){
+    syncRouteState(); renderHeader(); renderFooter(); renderPage(); applyIdentity(); updateCartCount(); bindRoutes(); bindGlobal(); floatingBenefitButton(); consentBanner();
+    if($('main[data-page="home"]') && read(STORE.popupDay,'')!==todayKey()) setTimeout(()=>openCampaignPopup('automatic'),550);
+  }
+
+  window.NoveraLab={PRODUCTS,rootUrl,openCampaignPopup,openNewsletterPopup,identity};
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+
+</script>
+</body>
+</html>
